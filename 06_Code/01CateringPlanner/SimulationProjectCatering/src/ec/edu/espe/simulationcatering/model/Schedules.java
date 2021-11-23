@@ -4,7 +4,7 @@ package ec.edu.espe.simulationcatering.model;
  *
  * @author Salma Villegas
  */
-public class KitchenCleaningSchedules {
+public class Schedules {
 
     private String designatedStaff;
     private int workHours;
@@ -29,3 +29,4 @@ public class KitchenCleaningSchedules {
     }
 
 }
+
