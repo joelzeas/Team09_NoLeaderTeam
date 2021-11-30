@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/JOEL/OneDrive/Escritorio/Respaldo%20OOP/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/CleaningImplements.java</file>
             <file>file:/C:/Users/JOEL/OneDrive/Escritorio/Respaldo%20OOP/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Events.java</file>
             <file>file:/C:/Users/JOEL/OneDrive/Escritorio/Respaldo%20OOP/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Reservations.java</file>
@@ -13,6 +14,11 @@
             <file>file:/C:/Users/JOEL/OneDrive/Escritorio/Respaldo%20OOP/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/LegalRequirements.java</file>
             <file>file:/C:/Users/JOEL/OneDrive/Escritorio/Respaldo%20OOP/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Transport.java</file>
             <file>file:/C:/Users/JOEL/OneDrive/Escritorio/Respaldo%20OOP/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Menu.java</file>
+=======
+            <file>file:/C:/Users/Melanie/OneDrive/Documentos/OOP/Código/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/view/SimulationProjectCatering.java</file>
+            <file>file:/C:/Users/Melanie/OneDrive/Documentos/OOP/Código/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Ingredients.java</file>
+            <file>file:/C:/Users/Melanie/OneDrive/Documentos/OOP/Código/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Cookware.java</file>
+>>>>>>> 2ce1a99b1a9fc4b3bf5f5bb3c5514ff0272b20b0
         </group>
     </open-files>
 </project-private>
