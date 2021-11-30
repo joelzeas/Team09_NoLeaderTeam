@@ -2,7 +2,7 @@ package ec.edu.espe.simulationcatering.model;
 
 /**
  *
- * @author Salma Villegas
+ * @author Melanie Teran
  */
 public class Ingredients {
 
