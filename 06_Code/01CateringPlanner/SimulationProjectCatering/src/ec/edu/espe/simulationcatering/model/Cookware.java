@@ -58,7 +58,7 @@ public class Cookware {
     }
 
     public Cookware() {
-        System.out.println("\n Details of the cookwre ");
+        System.out.println("\n Details of the cookware ");
         Scanner scanner = new Scanner(System.in);
         System.out.println(" Code ");
         code = scanner.nextInt();

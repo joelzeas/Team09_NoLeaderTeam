@@ -15,6 +15,11 @@ public class Ingredient {
     private float weight;
     private String supplier;
 
+    @Override
+    public String toString() {
+        return "Ingredient{" + "productCode=" + productCode + ", quantity=" + quantity + ", price=" + price + ", description=" + description + ", weight=" + weight + ", supplier=" + supplier + '}';
+    }
+
     public void seeAvailability() {
 
     }
