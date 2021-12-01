@@ -1,5 +1,7 @@
 package ec.edu.espe.simulationcatering.model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Joel Zeas
@@ -13,7 +15,10 @@ public class Reservation {
     private String paymentMethod;
     private String specs;
 
-    
+     @Override
+    public String toString() {
+        return "Reservation Data--->{" + "Client name is= " + clientName + ", phone to client is= " + phone + ", name event is= " + eventName + ", date is= " + date + ", Payment Method is= " + paymentMethod + ", specs is= " + specs + '}';
+    }
     
     public Reservation(String clientName, int phone, String eventName, String date, String paymentMethod, String specs) {
         this.clientName = clientName;
@@ -26,6 +31,21 @@ public class Reservation {
 
     public Reservation() {
     
+        System.out.println("\n Reservation ---> ");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(" Enter Client name ");
+        clientName = scanner.next();
+        System.out.println(" Enter phone to client ");
+        phone = scanner.nextInt();
+        System.out.println(" Enter event name ");
+        eventName = scanner.next();
+        System.out.println(" Enter date ");
+        date = scanner.next();
+        System.out.println(" Enter Payment Method ");
+        paymentMethod = scanner.next();
+        System.out.println(" Enter specs ");
+        specs = scanner.next();
+        
     }
 
     /**
