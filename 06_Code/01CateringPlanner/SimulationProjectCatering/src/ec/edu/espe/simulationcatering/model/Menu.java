@@ -14,7 +14,10 @@ public class Menu {
     private String description;
     private int menuCode;
 
-    
+    @Override
+    public String toString() {
+        return "Menu Data--->{" + "Name the menu is= " + name + ", components= " + components + ", price= " + price + ", Number to menu= " + description + ", Code to menu= " + menuCode + '}';
+    }
     
     public Menu(String name, String components, int price, String description, int menuCode) {
         this.name = name;
