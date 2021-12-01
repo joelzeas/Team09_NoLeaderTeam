@@ -1,5 +1,7 @@
 package ec.edu.espe.simulationcatering.model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Joel Zeas
@@ -24,6 +26,19 @@ public class Menu {
 
     public Menu() {
         
+        System.out.println("\n Menu ---> ");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(" Enter name the menu ");
+        name = scanner.next();
+        System.out.println(" Enter components ");
+        components = scanner.next();
+        System.out.println(" Enter price  ");
+        price = scanner.nextInt();
+        System.out.println(" Number to menu  ");
+        description = scanner.next();
+        System.out.println(" Enter code to menu  ");
+        menuCode = scanner.nextInt();
+ 
     }
 
     /**
