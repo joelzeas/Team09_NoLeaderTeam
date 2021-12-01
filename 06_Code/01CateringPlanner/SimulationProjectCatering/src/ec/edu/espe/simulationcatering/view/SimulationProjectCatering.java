@@ -23,7 +23,7 @@ public class SimulationProjectCatering {
         Transport transport = new Transport();
         Event event = new Event();
         Worker worker = new Worker();
-        
+
         System.out.println("Ingredients --> " + ingredient);
         System.out.println("CookWare --> " + cookware);
         System.out.println("Menu --> " + menu);
@@ -31,7 +31,7 @@ public class SimulationProjectCatering {
         System.out.println("Details of transport -->" + transport);
         System.out.println("Event Detail -->" + event);
         System.out.println("List of workers -->" + worker);
-        
+
     }
 
 }
