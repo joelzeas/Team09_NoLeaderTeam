@@ -15,11 +15,35 @@ public class Reservation {
     private String paymentMethod;
     private String specs;
 
-     @Override
-    public String toString() {
-        return "Reservation Data--->{" + "Client name is= " + clientName + ", phone to client is= " + phone + ", name event is= " + eventName + ", date is= " + date + ", Payment Method is= " + paymentMethod + ", specs is= " + specs + '}';
+    public void seeClientName(String clientName) {
+
     }
-    
+
+    private void seePhone(int phone) {
+
+    }
+
+    public void seeEventName(String eventName) {
+
+    }
+
+    public void seeDate(String date) {
+
+    }
+
+    public void seePaymentMethod(String paymentMethod) {
+
+    }
+
+    public void seeSpecs(String specs) {
+
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" + "clientName=" + clientName + ", phone=" + phone + ", eventName=" + eventName + ", date=" + date + ", paymentMethod=" + paymentMethod + ", specs=" + specs + '}';
+    }
+
     public Reservation(String clientName, int phone, String eventName, String date, String paymentMethod, String specs) {
         this.clientName = clientName;
         this.phone = phone;
@@ -30,7 +54,7 @@ public class Reservation {
     }
 
     public Reservation() {
-    
+
         System.out.println("\n Reservation ---> ");
         Scanner scanner = new Scanner(System.in);
         System.out.println(" Enter Client name ");
@@ -45,7 +69,7 @@ public class Reservation {
         paymentMethod = scanner.next();
         System.out.println(" Enter specs ");
         specs = scanner.next();
-        
+
     }
 
     /**

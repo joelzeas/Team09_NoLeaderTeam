@@ -24,6 +24,8 @@ public class SimulationProjectCatering {
         Event event = new Event();
         Worker worker = new Worker();
 
+        System.out.println("Authors: Melanie Teran, Salma Villegas, Joel Zeas");
+        System.out.println("   --> Welcome to the registration system of a Catering <--   ");
         System.out.println("Ingredients --> " + ingredient);
         System.out.println("CookWare --> " + cookware);
         System.out.println("Menu --> " + menu);
