@@ -1,8 +1,10 @@
 package ec.edu.espe.simulationcatering.model;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author Joel Zeas
+ * @author Joel Zeas, Salma Villegas
  */
 public class Reservation {
 
@@ -12,20 +14,24 @@ public class Reservation {
     private String date;
     private String paymentMethod;
     private String specs;
+    private ArrayList<Event> events;
+    private ArrayList<Transport> transports;
+    private ArrayList<Worker> workers;
 
-    
-    
-    public Reservation(String clientName, int phone, String eventName, String date, String paymentMethod, String specs) {
+    public Reservation(String clientName, int phone, String eventName, String date, String paymentMethod, String specs, ArrayList<Event> events, ArrayList<Transport> transports, ArrayList<Worker> workers) {
         this.clientName = clientName;
         this.phone = phone;
         this.eventName = eventName;
         this.date = date;
         this.paymentMethod = paymentMethod;
         this.specs = specs;
+        this.events = events;
+        this.transports = transports;
+        this.workers = workers;
     }
 
     public Reservation() {
-    
+
     }
 
     /**
