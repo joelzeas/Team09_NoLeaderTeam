@@ -1,5 +1,7 @@
 package ec.edu.espe.simulationcatering.model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Melanie Teran
@@ -13,10 +15,10 @@ public class Ingredient {
     private float weight;
     private String supplier;
 
-    public Ingredient() {
-
+    @Override
+    public String toString() {
+        return "Ingredient{" + "productCode=" + productCode + ", quantity=" + quantity + ", price=" + price + ", description=" + description + ", weight=" + weight + ", supplier=" + supplier + '}';
     }
-    
 
     public void seeAvailability() {
 
@@ -37,9 +39,9 @@ public class Ingredient {
     public void seeDescription(String description) {
 
     }
-    
-    public void seeSupplier (String supplier){
-        
+
+    public void seeSupplier(String supplier) {
+
     }
 
     public Ingredient(int productCode, int quantity, float price, String description, float weight, String supplier) {
@@ -49,6 +51,23 @@ public class Ingredient {
         this.description = description;
         this.weight = weight;
         this.supplier = supplier;
+    }
+
+    public Ingredient() {
+        System.out.println("\n Details of the ingredients ");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(" ProductCode ");
+        productCode = scanner.nextInt();
+        System.out.println(" Quantity ");
+        quantity = scanner.nextInt();
+        System.out.println(" Price ");
+        price = scanner.nextFloat();
+        System.out.println(" Description ");
+        description = scanner.next();
+        System.out.println(" weight ");
+        weight = scanner.nextFloat();
+        System.out.println(" Supplier ");
+        supplier = scanner.next();
     }
 
     /**

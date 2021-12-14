@@ -1,5 +1,7 @@
 package ec.edu.espe.simulationcatering.model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Joel Zeas
@@ -12,7 +14,10 @@ public class Menu {
     private String description;
     private int menuCode;
 
-    
+    @Override
+    public String toString() {
+        return "Menu Data--->{" + "Name the menu is= " + name + ", components= " + components + ", price= " + price + ", Number to menu= " + description + ", Code to menu= " + menuCode + '}';
+    }
     
     public Menu(String name, String components, int price, String description, int menuCode) {
         this.name = name;
@@ -24,6 +29,19 @@ public class Menu {
 
     public Menu() {
         
+        System.out.println("\n Menu ---> ");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(" Enter name the menu ");
+        name = scanner.next();
+        System.out.println(" Enter components ");
+        components = scanner.next();
+        System.out.println(" Enter price  ");
+        price = scanner.nextInt();
+        System.out.println(" Number to menu  ");
+        description = scanner.next();
+        System.out.println(" Enter code to menu  ");
+        menuCode = scanner.nextInt();
+ 
     }
 
     /**

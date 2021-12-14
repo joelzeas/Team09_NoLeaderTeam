@@ -1,5 +1,7 @@
 package ec.edu.espe.simulationcatering.model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Melanie Teran
@@ -13,10 +15,14 @@ public class Cookware {
     private String disponibility;
     private int quantity;
 
-    public Cookware() {
-
+    @Override
+    public String toString() {
+        return "Cookware{" + "code=" + code + ", name=" + name + ", material=" + material + ", use=" + use + ", disponibility=" + disponibility + ", quantity=" + quantity + '}';
     }
 
+    /**
+     *
+     */
     public void seeCode(int code) {
 
     }
@@ -49,6 +55,23 @@ public class Cookware {
         this.use = use;
         this.disponibility = disponibility;
         this.quantity = quantity;
+    }
+
+    public Cookware() {
+        System.out.println("\n Details of the cookware ");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(" Code ");
+        code = scanner.nextInt();
+        System.out.println(" Name ");
+        name = scanner.next();
+        System.out.println(" Material ");
+        material = scanner.next();
+        System.out.println(" Use ");
+        use = scanner.next();
+        System.out.println(" Disponibility ");
+        disponibility = scanner.next();
+        System.out.println(" Quantity ");
+        quantity = scanner.nextInt();
     }
 
     /**
