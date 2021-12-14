@@ -1,10 +1,14 @@
 package ec.edu.espe.simulationcatering.model;
 
+<<<<<<< HEAD
+import java.util.ArrayList;
+=======
 import java.util.Scanner;
+>>>>>>> 9964592227a5dde979bb74ce8684faf7430321db
 
 /**
  *
- * @author Joel Zeas
+ * @author Joel Zeas, Salma Villegas
  */
 public class Reservation {
 
@@ -14,7 +18,11 @@ public class Reservation {
     private String date;
     private String paymentMethod;
     private String specs;
+    private ArrayList<Event> events;
+    private ArrayList<Transport> transports;
+    private ArrayList<Worker> workers;
 
+<<<<<<< HEAD
     public void seeClientName(String clientName) {
 
     }
@@ -40,21 +48,38 @@ public class Reservation {
     }
 
     @Override
+=======
+<<<<<<< HEAD
+    public Reservation(String clientName, int phone, String eventName, String date, String paymentMethod, String specs, ArrayList<Event> events, ArrayList<Transport> transports, ArrayList<Worker> workers) {
+=======
+     @Override
+>>>>>>> 4555ca6917bad6d09af3b8f72604a320a30b586c
     public String toString() {
         return "Reservation{" + "clientName=" + clientName + ", phone=" + phone + ", eventName=" + eventName + ", date=" + date + ", paymentMethod=" + paymentMethod + ", specs=" + specs + '}';
     }
 
     public Reservation(String clientName, int phone, String eventName, String date, String paymentMethod, String specs) {
+>>>>>>> 9964592227a5dde979bb74ce8684faf7430321db
         this.clientName = clientName;
         this.phone = phone;
         this.eventName = eventName;
         this.date = date;
         this.paymentMethod = paymentMethod;
         this.specs = specs;
+        this.events = events;
+        this.transports = transports;
+        this.workers = workers;
     }
 
     public Reservation() {
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 4555ca6917bad6d09af3b8f72604a320a30b586c
         System.out.println("\n Reservation ---> ");
         Scanner scanner = new Scanner(System.in);
         System.out.println(" Enter Client name ");
@@ -69,7 +94,12 @@ public class Reservation {
         paymentMethod = scanner.next();
         System.out.println(" Enter specs ");
         specs = scanner.next();
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 9964592227a5dde979bb74ce8684faf7430321db
+>>>>>>> 4555ca6917bad6d09af3b8f72604a320a30b586c
     }
 
     /**

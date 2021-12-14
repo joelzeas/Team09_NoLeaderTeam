@@ -7,6 +7,7 @@ import ec.edu.espe.simulationcatering.model.Menu;
 import ec.edu.espe.simulationcatering.model.Reservation;
 import ec.edu.espe.simulationcatering.model.Transport;
 import ec.edu.espe.simulationcatering.model.Worker;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,6 +16,10 @@ import ec.edu.espe.simulationcatering.model.Worker;
 public class SimulationProjectCatering {
 
     public static void main(String[] args) {
+        ArrayList<Event> events = new ArrayList <>();
+        ArrayList<Transport> transports = new ArrayList <>();
+        ArrayList<Worker> workers = new ArrayList <>();
+        
 
         Ingredient ingredient = new Ingredient();
         Cookware cookware = new Cookware();
