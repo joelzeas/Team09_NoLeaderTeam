@@ -16,6 +16,7 @@ public class Menu {
     private ArrayList<Ingredient> ingredients;
     private ArrayList<Cookware> cookwares;
 
+<<<<<<< HEAD
     public void add(Ingredient ingredient) {
         getIngredients().add(ingredient);
     }
@@ -25,6 +26,34 @@ public class Menu {
     }
     
     public Menu(String name, String components, float price, String description, int menuCode, ArrayList<Ingredient> ingredients, ArrayList<Cookware> cookwares) {
+=======
+    public void seeName(String name) {
+
+    }
+
+    public void seeComponents(String components) {
+
+    }
+
+    public void seePrice(int price) {
+
+    }
+
+    public void seeDescription(String description) {
+
+    }
+
+    public void seeMenuCode(int menuCode) {
+
+    }
+
+    @Override
+    public String toString() {
+        return "Menu{" + "name=" + name + ", components=" + components + ", price=" + price + ", description=" + description + ", menuCode=" + menuCode + '}';
+    }
+
+    public Menu(String name, String components, int price, String description, int menuCode) {
+>>>>>>> 3c28bbafe62ff71e365a8d5642147acd6e777428
         this.name = name;
         this.components = components;
         this.price = price;
@@ -34,9 +63,27 @@ public class Menu {
         this.cookwares = cookwares;
     }
 
+<<<<<<< HEAD
     @Override
     public String toString() {
         return "Menu{" + "name=" + getName() + ", components=" + getComponents() + ", price=" + getPrice() + ", description=" + getDescription() + ", menuCode=" + getMenuCode() + ", ingredients=" + getIngredients() + ", cookwares=" + getCookwares() + '}';
+=======
+    public Menu() {
+
+        System.out.println("\n Menu ---> ");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(" Enter name the menu ");
+        name = scanner.next();
+        System.out.println(" Enter components ");
+        components = scanner.next();
+        System.out.println(" Enter price  ");
+        price = scanner.nextInt();
+        System.out.println(" Number to menu  ");
+        description = scanner.next();
+        System.out.println(" Enter code to menu  ");
+        menuCode = scanner.nextInt();
+
+>>>>>>> 3c28bbafe62ff71e365a8d5642147acd6e777428
     }
     
 
@@ -98,6 +145,7 @@ public class Menu {
         this.menuCode = menuCode;
     }
 
+<<<<<<< HEAD
     /**
      * @return the ingredients
      */
@@ -140,4 +188,6 @@ public class Menu {
         this.price = price;
     }
 
+=======
+>>>>>>> 3c28bbafe62ff71e365a8d5642147acd6e777428
 }

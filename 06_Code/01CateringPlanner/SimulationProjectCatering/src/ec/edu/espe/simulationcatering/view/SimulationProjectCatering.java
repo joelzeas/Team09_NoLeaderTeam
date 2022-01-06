@@ -22,6 +22,14 @@ public class SimulationProjectCatering {
         Transport transport = new Transport();
         Worker worker = new Worker();
 
+<<<<<<< HEAD
+=======
+        System.out.println("Authors: Melanie Teran, Salma Villegas, Joel Zeas");
+        System.out.println("   --> Welcome to the registration system of a Catering <--   ");
+        System.out.println("Ingredients --> " + ingredient);
+        System.out.println("CookWare --> " + cookware);
+        System.out.println("Menu --> " + menu);
+>>>>>>> 3c28bbafe62ff71e365a8d5642147acd6e777428
         System.out.println("Reservations --> " + reservation);
         System.out.println("Details of transport -->" + transport);
         System.out.println("List of workers -->" + worker);
