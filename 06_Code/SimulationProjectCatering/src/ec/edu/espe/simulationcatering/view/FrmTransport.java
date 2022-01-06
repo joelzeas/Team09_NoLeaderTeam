@@ -43,9 +43,9 @@ public class FrmTransport extends javax.swing.JFrame {
             table.setValueAt(transports.get(i).getEnrollment(), i, 1);
             table.setValueAt(transports.get(i).getDrivername(), i, 2);
             table.setValueAt(transports.get(i).getTypeTransport(), i, 3);
-            table.setValueAt(transports.get(i).getFreightCapacity(), i, 4);
+            table.setValueAt(transports.get(i).getFreightCapacity(), i, 5);
             table.setValueAt(transports.get(i).getDestination(), i, 5);
-            table.setValueAt(transports.get(i).getTravelTime(), i, 6);
+            table.setValueAt(transports.get(i).getTravelTime(), i, 5);
             table.setValueAt(transports.get(i).getGallonsgasoline(), i, 7);
 
         }
