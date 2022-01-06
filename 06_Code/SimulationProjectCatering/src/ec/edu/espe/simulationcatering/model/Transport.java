@@ -1,21 +1,23 @@
 package ec.edu.espe.simulationcatering.model;
-
-import java.util.Scanner;
-
 /**
  *
  * @author Salma Villegas
  */
 public class Transport {
-
+    
+    private String ID;
     private String drivername;
     private String enrollment;
     private String typeTransport;
-    private int freightCapacity;
+    private String freightCapacity;
     private String destination;
-    private int travelTime;
-    private int gallonsgasoline;
-    private String fuel;
+    private String travelTime;
+    private String gallonsgasoline;
+    
+    
+    private void seeID(String ID) {
+
+    }
 
     private void seeDriverName(String drivername) {
 
@@ -29,7 +31,7 @@ public class Transport {
 
     }
 
-    private void seeCapacity(int freightCapacity) {
+    private void seeCapacity(String freightCapacity) {
 
     }
 
@@ -37,19 +39,17 @@ public class Transport {
 
     }
 
-    private void seeTime(int travelTime) {
+    private void seeTime(String travelTime) {
+
+    }
+    
+     private void enterGallonsGasoline(String gallonsgasoline) {
 
     }
 
-    private boolean check(int gallonsgasoline, String fuel) {
-        return false;
-    }
 
-    @Override
-    public String toString() {
-        return "Transport{" + "drivername=" + drivername + ", enrollment=" + enrollment + ", typeTransport=" + typeTransport + ", freightCapacity=" + freightCapacity + ", destination=" + destination + ", travelTime=" + travelTime + ", gallonsgasoline=" + gallonsgasoline + ", fuel=" + fuel + '}';
-    }
-    public Transport(String drivername, String enrollment, String typeTransport, int freightCapacity, String destination, int travelTime, int gallonsgasoline, String fuel) {
+    public Transport(String ID, String drivername, String enrollment, String typeTransport, String freightCapacity, String destination, String travelTime, String gallonsgasoline) {
+        this.ID = ID;
         this.drivername = drivername;
         this.enrollment = enrollment;
         this.typeTransport = typeTransport;
@@ -57,33 +57,33 @@ public class Transport {
         this.destination = destination;
         this.travelTime = travelTime;
         this.gallonsgasoline = gallonsgasoline;
-        this.fuel = fuel;
+       
     }
-    
-      
+
     public Transport() {
         
-        System.out.println("\n Details of the transport ");
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(" Driver Name");
-        drivername = scanner.next();
-        System.out.println(" Enrollment ");
-        enrollment = scanner.next();
-        System.out.println(" Type of transport ");
-        typeTransport = scanner.next();
-        System.out.println(" Freight Capacity ");
-        freightCapacity = scanner.nextInt();
-        System.out.println(" Destination "); 
-        destination = scanner.next();
-        System.out.println(" Travel Time ");
-        travelTime = scanner.nextInt();
-        System.out.println(" Gallons of Gasoline ");
-        gallonsgasoline = scanner.nextInt();
-        System.out.println(" Fuel "); 
-        fuel = scanner.next();
- 
+    }
+
+    @Override
+    public String toString() {
+        return "Transport{" + "ID=" + ID + ", drivername=" + drivername + ", enrollment=" + enrollment + ", typeTransport=" + typeTransport + ", freightCapacity=" + freightCapacity + ", destination=" + destination + ", travelTime=" + travelTime + ", gallonsgasoline=" + gallonsgasoline + '}';
     }
     
+   
+    /**
+     * @return the ID
+     */
+    public String getID() {
+        return ID;
+    }
+
+    /**
+     * @param ID the ID to set
+     */
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
     /**
      * @return the drivername
      */
@@ -129,14 +129,14 @@ public class Transport {
     /**
      * @return the freightCapacity
      */
-    public int getFreightCapacity() {
+    public String getFreightCapacity() {
         return freightCapacity;
     }
 
     /**
      * @param freightCapacity the freightCapacity to set
      */
-    public void setFreightCapacity(int freightCapacity) {
+    public void setFreightCapacity(String freightCapacity) {
         this.freightCapacity = freightCapacity;
     }
 
@@ -157,45 +157,33 @@ public class Transport {
     /**
      * @return the travelTime
      */
-    public int getTravelTime() {
+    public String getTravelTime() {
         return travelTime;
     }
 
     /**
      * @param travelTime the travelTime to set
      */
-    public void setTravelTime(int travelTime) {
+    public void setTravelTime(String travelTime) {
         this.travelTime = travelTime;
     }
 
     /**
      * @return the gallonsgasoline
      */
-    public int getGallonsgasoline() {
+    public String getGallonsgasoline() {
         return gallonsgasoline;
     }
 
     /**
      * @param gallonsgasoline the gallonsgasoline to set
      */
-    public void setGallonsgasoline(int gallonsgasoline) {
+    public void setGallonsgasoline(String gallonsgasoline) {
         this.gallonsgasoline = gallonsgasoline;
     }
 
-    /**
-     * @return the fuel
-     */
-    public String getFuel() {
-        return fuel;
+    public void getGallonsGasoline() {
+        
     }
-
-    /**
-     * @param fuel the fuel to set
-     */
-    public void setFuel(String fuel) {
-        this.fuel = fuel;
-    }
-    
-    
 
 }

@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package ec.edu.espe.simulationcatering.view;
 
 /**
  *
- * @author LENOVO
+ * @author Salma 
  */
 public class FrmCateringPlanner extends javax.swing.JFrame {
 
@@ -42,10 +39,6 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
         itmReservations = new javax.swing.JMenuItem();
         itmTransport = new javax.swing.JMenuItem();
         itmEvents = new javax.swing.JMenuItem();
-        itmCookware = new javax.swing.JMenu();
-        itmCookware1 = new javax.swing.JMenuItem();
-        itmIngredient = new javax.swing.JMenuItem();
-        itmWorker = new javax.swing.JMenuItem();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -126,38 +119,6 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
 
         MenuCateringPlanner.add(jMenu2);
 
-        itmCookware.setBorder(null);
-        itmCookware.setText("Resources");
-
-        itmCookware1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itmCookware1.setText("Cookware");
-        itmCookware1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmCookware1ActionPerformed(evt);
-            }
-        });
-        itmCookware.add(itmCookware1);
-
-        itmIngredient.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itmIngredient.setText("Ingredient");
-        itmIngredient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmIngredientActionPerformed(evt);
-            }
-        });
-        itmCookware.add(itmIngredient);
-
-        itmWorker.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itmWorker.setText("Worker");
-        itmWorker.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmWorkerActionPerformed(evt);
-            }
-        });
-        itmCookware.add(itmWorker);
-
-        MenuCateringPlanner.add(itmCookware);
-
         setJMenuBar(MenuCateringPlanner);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,24 +180,6 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_itmTransportActionPerformed
 
-    private void itmIngredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmIngredientActionPerformed
-        FrmIngredients frmIngredients = new FrmIngredients();
-        frmIngredients.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_itmIngredientActionPerformed
-
-    private void itmCookware1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCookware1ActionPerformed
-        FrmCookware frmCookware = new FrmCookware();
-        frmCookware.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_itmCookware1ActionPerformed
-
-    private void itmWorkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmWorkerActionPerformed
-        FrmWorker frmWorker = new FrmWorker();
-        frmWorker.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_itmWorkerActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -275,14 +218,10 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuCateringPlanner;
     private javax.swing.JMenuItem itmAbout;
-    private javax.swing.JMenu itmCookware;
-    private javax.swing.JMenuItem itmCookware1;
     private javax.swing.JMenuItem itmEvents;
     private javax.swing.JMenuItem itmExit;
-    private javax.swing.JMenuItem itmIngredient;
     private javax.swing.JMenuItem itmReservations;
     private javax.swing.JMenuItem itmTransport;
-    private javax.swing.JMenuItem itmWorker;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

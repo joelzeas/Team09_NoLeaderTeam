@@ -2,20 +2,20 @@ package ec.edu.espe.simulationcatering.model;
 
 /**
  *
- * @author Joel Zeas
+ * @author Joel Zeas Salma Villegas
  */
 public class Reservation {
 
+    private String ID;
     private String clientName;
-    private int phone;
+    private String phone;
     private String eventName;
     private String date;
     private String paymentMethod;
     private String specs;
 
-    
-    
-    public Reservation(String clientName, int phone, String eventName, String date, String paymentMethod, String specs) {
+    public Reservation(String ID, String clientName, String phone, String eventName, String date, String paymentMethod, String specs) {
+        this.ID = ID;
         this.clientName = clientName;
         this.phone = phone;
         this.eventName = eventName;
@@ -25,7 +25,26 @@ public class Reservation {
     }
 
     public Reservation() {
-    
+        
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" + "ID=" + ID + ", clientName=" + clientName + ", phone=" + phone + ", eventName=" + eventName + ", date=" + date + ", paymentMethod=" + paymentMethod + ", specs=" + specs + '}';
+    }
+
+    /**
+     * @return the ID
+     */
+    public String getID() {
+        return ID;
+    }
+
+    /**
+     * @param ID the ID to set
+     */
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     /**
@@ -45,14 +64,14 @@ public class Reservation {
     /**
      * @return the phone
      */
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
     /**
      * @param phone the phone to set
      */
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -112,4 +131,5 @@ public class Reservation {
         this.specs = specs;
     }
 
+    
 }

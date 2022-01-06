@@ -7,30 +7,19 @@ import java.util.ArrayList;
  * @author Salma Villegas, Melanie Terán
  */
 public class Event {
-
+    
+    private String ID;
     private String date;
     private String place;
     private String hour;
-    private int guests;
-    private ArrayList<Menu> menus;
+    private String guests;
 
-    public void add(Menu menu) {
-        getMenus().add(menu);
+    public Event(String date, String place, String hour, int guests, ArrayList<Transport> transports, ArrayList<Menu> menus, ArrayList<Worker> workers) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public String toString() {
-        return "Event{" + "date=" + date + ", place=" + place + ", hour=" + hour + ", guests=" + guests + ", menus=" + menus + '}';
-    }
-
     
-    public Event(String date, String place, String hour, int guests, ArrayList<Menu> menus) {
-        this.date = date;
-        this.place = place;
-        this.hour = hour;
-        this.guests = guests;
-        this.menus = menus;
-    }
+    
+    
 
     public void seeDate(String date) {
 
@@ -44,8 +33,42 @@ public class Event {
 
     }
 
-    public void seeGuests(int guests) {
+    public void seeGuests(String guests) {
 
+    }
+
+    public Event(String ID, String date, String place, String hour, String guests) {
+        this.ID = ID;
+        this.date = date;
+        this.place = place;
+        this.hour = hour;
+        this.guests = guests;
+    }
+    
+       public Event() {
+        
+    }
+
+
+    @Override
+    public String toString() {
+        return "Event{" + "ID=" + ID + ", date=" + date + ", place=" + place + ", hour=" + hour + ", guests=" + guests + '}';
+    }
+    
+    
+
+    /**
+     * @return the ID
+     */
+    public String getID() {
+        return ID;
+    }
+
+    /**
+     * @param ID the ID to set
+     */
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     /**
@@ -93,29 +116,22 @@ public class Event {
     /**
      * @return the guests
      */
-    public int getGuests() {
+    public String getGuests() {
         return guests;
     }
 
     /**
      * @param guests the guests to set
      */
-    public void setGuests(int guests) {
+    public void setGuests(String guests) {
         this.guests = guests;
     }
 
-    /**
-     * @return the menus
-     */
-    public ArrayList<Menu> getMenus() {
-        return menus;
+    public void add(Menu menu) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * @param menus the menus to set
-     */
-    public void setMenus(ArrayList<Menu> menus) {
-        this.menus = menus;
-    }
-
+    
+   
+    
 }
