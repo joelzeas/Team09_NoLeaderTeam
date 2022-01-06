@@ -34,16 +34,7 @@ public class FrmEvents extends javax.swing.JFrame {
     }
     
     public void toProject() {
-        table.setNumRows(events.size());
-        for (int i = 0; i <events.size(); i++) {
-            table.setValueAt(events.get(i).getID(), i, 0);
-            table.setValueAt(events.get(i).getDate(), i, 1);
-            table.setValueAt(events.get(i).getPlace(), i, 2);
-            table.setValueAt(events.get(i).getHour(), i, 3);
-            table.setValueAt(events.get(i).getGuests(), i, 4);
-
-        }
-        tblEvents.setModel(table);
+    
     }
 
     /**
