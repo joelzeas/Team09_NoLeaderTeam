@@ -12,37 +12,25 @@ public class Event {
     private String place;
     private String hour;
     private int guests;
-    private ArrayList<Transport> transports;
     private ArrayList<Menu> menus;
-    private ArrayList<Worker> workers;
-
-    public void add(Transport transport) {
-        getTransports().add(transport);
-    }
 
     public void add(Menu menu) {
         getMenus().add(menu);
     }
 
-    public void add(Worker worker) {
-        getWorkers().add(worker);
-    }
-
     @Override
     public String toString() {
-        return "Event{" + "date=" + getDate() + ", place=" + getPlace() + ", hour=" + getHour() + ", guests=" + getGuests() + ", transports=" + getTransports() + ", menus=" + getMenus() + ", workers=" + getWorkers() + '}';
+        return "Event{" + "date=" + date + ", place=" + place + ", hour=" + hour + ", guests=" + guests + ", menus=" + menus + '}';
     }
 
-    public Event(String date, String place, String hour, int guests, ArrayList<Transport> transports, ArrayList<Menu> menus, ArrayList<Worker> workers) {
+    
+    public Event(String date, String place, String hour, int guests, ArrayList<Menu> menus) {
         this.date = date;
         this.place = place;
         this.hour = hour;
         this.guests = guests;
-        this.transports = transports;
         this.menus = menus;
-        this.workers = workers;
     }
-    
 
     public void seeDate(String date) {
 
@@ -59,9 +47,7 @@ public class Event {
     public void seeGuests(int guests) {
 
     }
-    
-    
-    
+
     /**
      * @return the date
      */
@@ -119,20 +105,6 @@ public class Event {
     }
 
     /**
-     * @return the transports
-     */
-    public ArrayList<Transport> getTransports() {
-        return transports;
-    }
-
-    /**
-     * @param transports the transports to set
-     */
-    public void setTransports(ArrayList<Transport> transports) {
-        this.transports = transports;
-    }
-
-    /**
      * @return the menus
      */
     public ArrayList<Menu> getMenus() {
@@ -146,18 +118,4 @@ public class Event {
         this.menus = menus;
     }
 
-    /**
-     * @return the workers
-     */
-    public ArrayList<Worker> getWorkers() {
-        return workers;
-    }
-
-    /**
-     * @param workers the workers to set
-     */
-    public void setWorkers(ArrayList<Worker> workers) {
-        this.workers = workers;
-    }
-    
 }
