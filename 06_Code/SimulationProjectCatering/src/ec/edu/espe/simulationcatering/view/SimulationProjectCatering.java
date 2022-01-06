@@ -22,14 +22,6 @@ public class SimulationProjectCatering {
         Transport transport = new Transport();
         Worker worker = new Worker();
 
-<<<<<<< HEAD
-=======
-        System.out.println("Authors: Melanie Teran, Salma Villegas, Joel Zeas");
-        System.out.println("   --> Welcome to the registration system of a Catering <--   ");
-        System.out.println("Ingredients --> " + ingredient);
-        System.out.println("CookWare --> " + cookware);
-        System.out.println("Menu --> " + menu);
->>>>>>> 3c28bbafe62ff71e365a8d5642147acd6e777428
         System.out.println("Reservations --> " + reservation);
         System.out.println("Details of transport -->" + transport);
         System.out.println("List of workers -->" + worker);
@@ -76,7 +68,13 @@ public class SimulationProjectCatering {
         hour = scanner.next();
         System.out.println(" Guests ");
         guests = scanner.nextInt();
+        
         event = new Event(date, place, hour, guests, transports, menus, workers);
+        
+        String fileName = "data/eventList.csv";
+        FileManager.save(fileName,"\n"+event); 
+        //ArrayList<String> event = FileManager.read(fileName);
+        System.out.println("-> List of device\n"+event);
 
 //Menu
         while (continuee) {
@@ -93,8 +91,13 @@ public class SimulationProjectCatering {
             menuCode = scanner.nextInt();
 
             menu = new Menu(name, components, price, description, menuCode, ingredients, cookwares);
-            event.add(menu);
+            //event.add(menu);
 
+            String fileName1 = "data/menuList.csv";
+            FileManager.save(fileName,"\n"+menu); 
+            ArrayList<String> menuList = FileManager.read(fileName);
+            System.out.println("-> List of device\n"+menu);
+                    
 // Ingredients
             while (continuee) {
                 System.out.println("\n Details of the ingredients ");
@@ -113,6 +116,11 @@ public class SimulationProjectCatering {
 
                 ingredient = new Ingredient(productCode, quantity, price, description, weight, supplier);
                 menu.add(ingredient);
+                
+                    String fileName2 = "data/ingredientsList.csv";
+                    FileManager.save(fileName,"\n"+ingredients); 
+                    ArrayList<String> ingredientsList = FileManager.read(fileName);
+                    System.out.println("-> List of device\n"+ingredients);
 
                 System.out.print("\nDo you want to enter another ingradient ");
                 System.out.println("Y / N ");
@@ -147,6 +155,11 @@ public class SimulationProjectCatering {
                 cookware = new Cookware(code, name, material, use, disponibility, quantity);
                 menu.add(cookware);
 
+                String fileName3 = "data/cookwareList.csv";
+                FileManager.save(fileName,"\n"+cookware); 
+                ArrayList<String> cookwareList = FileManager.read(fileName);
+                System.out.println("-> List of device\n"+cookware);
+                
                 System.out.print("\nDo you want to enter another cookware ");
                 System.out.println("Y / N ");
 
