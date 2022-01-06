@@ -1,14 +1,8 @@
 package ec.edu.espe.simulationcatering.model;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
-=======
-import java.util.Scanner;
->>>>>>> 9964592227a5dde979bb74ce8684faf7430321db
-
 /**
  *
- * @author Joel Zeas, Salma Villegas
+ * @author Joel Zeas
  */
 public class Reservation {
 
@@ -18,6 +12,11 @@ public class Reservation {
     private String date;
     private String paymentMethod;
     private String specs;
+<<<<<<< HEAD
+
+    
+    
+=======
     private ArrayList<Event> events;
     private ArrayList<Transport> transports;
     private ArrayList<Worker> workers;
@@ -58,20 +57,20 @@ public class Reservation {
         return "Reservation{" + "clientName=" + clientName + ", phone=" + phone + ", eventName=" + eventName + ", date=" + date + ", paymentMethod=" + paymentMethod + ", specs=" + specs + '}';
     }
 
+>>>>>>> 3c28bbafe62ff71e365a8d5642147acd6e777428
     public Reservation(String clientName, int phone, String eventName, String date, String paymentMethod, String specs) {
->>>>>>> 9964592227a5dde979bb74ce8684faf7430321db
         this.clientName = clientName;
         this.phone = phone;
         this.eventName = eventName;
         this.date = date;
         this.paymentMethod = paymentMethod;
         this.specs = specs;
-        this.events = events;
-        this.transports = transports;
-        this.workers = workers;
     }
 
     public Reservation() {
+<<<<<<< HEAD
+    
+=======
 <<<<<<< HEAD
 
 =======
@@ -100,6 +99,7 @@ public class Reservation {
         
 >>>>>>> 9964592227a5dde979bb74ce8684faf7430321db
 >>>>>>> 4555ca6917bad6d09af3b8f72604a320a30b586c
+>>>>>>> 3c28bbafe62ff71e365a8d5642147acd6e777428
     }
 
     /**

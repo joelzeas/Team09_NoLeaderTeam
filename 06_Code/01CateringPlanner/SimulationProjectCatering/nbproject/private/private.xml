@@ -2,6 +2,36 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Melanie/OneDrive/Documentos/OOP/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Menu.java</file>
+            <file>file:/C:/Users/Melanie/OneDrive/Documentos/OOP/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Cookware.java</file>
+            <file>file:/C:/Users/Melanie/OneDrive/Documentos/OOP/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Ingredient.java</file>
+            <file>file:/C:/Users/Melanie/OneDrive/Documentos/OOP/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/view/SimulationProjectCatering.java</file>
+            <file>file:/C:/Users/Melanie/OneDrive/Documentos/OOP/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/view/FrmCateringPlanner.java</file>
+            <file>file:/C:/Users/Melanie/OneDrive/Documentos/OOP/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Event.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/JOEL/OneDrive/Escritorio/2DO%20SEMESTRE/POO%207490/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Reservation.java</file>
+            <file>file:/C:/Users/JOEL/OneDrive/Escritorio/2DO%20SEMESTRE/POO%207490/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Ingredient.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/LENOVO/Desktop/Segundo%20Semestre/Programacion%20Orientada%20a%20Objetos/Unidad%201/Code/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Event.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/Segundo%20Semestre/Programacion%20Orientada%20a%20Objetos/Unidad%201/Code/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Cookware.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/Segundo%20Semestre/Programacion%20Orientada%20a%20Objetos/Unidad%201/Code/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/view/SimulationProjectCatering.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/Segundo%20Semestre/Programacion%20Orientada%20a%20Objetos/Unidad%201/Code/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Ingredient.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/Segundo%20Semestre/Programacion%20Orientada%20a%20Objetos/Unidad%201/Code/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Transport.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/Segundo%20Semestre/Programacion%20Orientada%20a%20Objetos/Unidad%201/Code/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Reservation.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/Segundo%20Semestre/Programacion%20Orientada%20a%20Objetos/Unidad%201/Code/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/model/Menu.java</file>
+=======
+>>>>>>> 4555ca6917bad6d09af3b8f72604a320a30b586c
+            <file>file:/C:/Users/JOEL/OneDrive/Escritorio/2DO%20SEMESTRE/POO%207490/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/01CateringPlanner/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/view/SimulationProjectCatering.java</file>
+>>>>>>> 9964592227a5dde979bb74ce8684faf7430321db
+>>>>>>> 3c28bbafe62ff71e365a8d5642147acd6e777428
+        </group>
+>>>>>>> 5e17e4e3d32a65ddf90a71e3f8d91620e798f9ee
     </open-files>
 </project-private>

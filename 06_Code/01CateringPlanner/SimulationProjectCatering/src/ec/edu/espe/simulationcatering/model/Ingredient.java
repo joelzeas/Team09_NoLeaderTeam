@@ -1,7 +1,5 @@
 package ec.edu.espe.simulationcatering.model;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Melanie Teran
@@ -53,7 +51,7 @@ public class Ingredient {
         this.supplier = supplier;
     }
 
-    public Ingredient() {
+    /*public Ingredient() {
         System.out.println("\n Details of the ingredients ");
         Scanner scanner = new Scanner(System.in);
         System.out.println(" ProductCode ");
@@ -68,7 +66,7 @@ public class Ingredient {
         weight = scanner.nextFloat();
         System.out.println(" Supplier ");
         supplier = scanner.next();
-    }
+    }*/
 
     /**
      * @return the productCode
