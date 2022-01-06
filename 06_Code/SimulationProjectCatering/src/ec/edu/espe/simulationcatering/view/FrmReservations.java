@@ -2,27 +2,42 @@
 package ec.edu.espe.simulationcatering.view;
 
 
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+import com.mongodb.client.result.DeleteResult;
 import ec.edu.espe.simulationcatering.model.Reservation;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.bson.Document;
+import org.bson.types.ObjectId;
+import utils.MongoConnection;
 
 /**
  *
  * @author Salma Villegas
  */
 public class FrmReservations extends javax.swing.JFrame {
-    ArrayList<Reservation>reservations;
-    static int code=1;
-    DefaultTableModel table;
+    //ArrayList<Reservation>reservations;
+    //static int code=1;
+    //DefaultTableModel table;
+      MongoCollection<Document> Reservation = new MongoConnection().obtenerDB().getCollection("Reservation");
+    DefaultTableModel table = new DefaultTableModel() {
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+
+    };
 
     /**
      * Creates new form FrmReservations
      */
     public FrmReservations() {
         initComponents();
-        reservations=new ArrayList();
-        table=new DefaultTableModel();
+        //reservations=new ArrayList();
+        //table=new DefaultTableModel();
         
         table.addColumn("ID");
         table.addColumn("Client Name");
@@ -32,11 +47,21 @@ public class FrmReservations extends javax.swing.JFrame {
         table.addColumn("Payment Method");
         table.addColumn("Specs");
         
+        tblReservations.setModel(table);
         toProject();
     }
 
       private void toProject() {
-        table.setNumRows(reservations.size());
+          MongoCursor<Document> query = Reservation.find().iterator();
+
+        int total = table.getRowCount();
+        for (int i = 0; i < total; i++) {
+            table.removeRow(0);
+        }
+        while (query.hasNext()) {
+            ArrayList<Object> doc = new ArrayList<Object>(query.next().values());
+            table.addRow(doc.toArray());
+        /*table.setNumRows(reservations.size());
         for (int i = 0; i <reservations.size(); i++) {
             table.setValueAt(reservations.get(i).getID(), i, 0);
             table.setValueAt(reservations.get(i).getClientName(), i, 1);
@@ -46,7 +71,8 @@ public class FrmReservations extends javax.swing.JFrame {
             table.setValueAt(reservations.get(i).getPaymentMethod(), i, 5);
             table.setValueAt(reservations.get(i).getSpecs(), i, 6);
         }
-        tblReservations.setModel(table);
+        tblReservations.setModel(table);*/
+      }
     }
 
     /**
@@ -80,6 +106,7 @@ public class FrmReservations extends javax.swing.JFrame {
         tblReservations = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
+        btnUpdateR = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -160,6 +187,13 @@ public class FrmReservations extends javax.swing.JFrame {
 
         jLabel8.setText("ID");
 
+        btnUpdateR.setText("Update");
+        btnUpdateR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateRActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,20 +232,18 @@ public class FrmReservations extends javax.swing.JFrame {
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtSpecs)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(52, 52, 52)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(112, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnRemoveR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAddR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnCancelR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(111, 111, 111))))))
+                                .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnUpdateR)
+                                .addComponent(btnAddR, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnRemoveR)
+                                .addComponent(btnCancelR, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(112, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,41 +251,45 @@ public class FrmReservations extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(txtClientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel8)
-                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtClientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel8)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(txtEventName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(23, 23, 23))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAddR)
+                        .addGap(11, 11, 11)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnAddR)
-                        .addGap(33, 33, 33)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(txtSpecs, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnUpdateR)
+                        .addGap(18, 18, 18)
                         .addComponent(btnRemoveR)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancelR))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel7)
-                        .addComponent(txtSpecs, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelR)
+                        .addGap(18, 18, 18)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -274,17 +310,33 @@ public class FrmReservations extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelRActionPerformed
 
     private void btnRemoveRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveRActionPerformed
-        if (tblReservations.getSelectedRow() < 0) {
+        /*if (tblReservations.getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(null, "Select record to delete");
         } else {
-            reservations.remove(tblReservations.getSelectedRow());
+            reservation.remove(tblReservations.getSelectedRow());
             toProject();
+        }*/
+             int renglon = tblReservations.getSelectedRow();
+        if(renglon == -1){
+            JOptionPane.showMessageDialog(this, "Error ");
+            return;
+        }
+        String idRemove = tblReservations.getValueAt(renglon, 0).toString();
+        int respuesta = JOptionPane.showConfirmDialog(this, "Remove id"+ idRemove);
+        if(respuesta == JOptionPane.OK_OPTION){
+            boolean answerDelete = Delete(idRemove);
+            if(answerDelete==true){
+                JOptionPane.showMessageDialog(this, "correct delete");
+            }else{
+                JOptionPane.showMessageDialog(this, "no delete");
+
+            }
         }
         
     }//GEN-LAST:event_btnRemoveRActionPerformed
 
     private void btnAddRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRActionPerformed
-        if (!txtID.getText().equals("") && !txtClientName.getText().equals("") && !txtPhone.getText().equals("") && !txtEventName.getText().equals("") && !txtDate.getText().equals("") && !txtPayment.getText().equals("") && !txtSpecs.getText().equals("")) {
+        /*if (!txtID.getText().equals("") && !txtClientName.getText().equals("") && !txtPhone.getText().equals("") && !txtEventName.getText().equals("") && !txtDate.getText().equals("") && !txtPayment.getText().equals("") && !txtSpecs.getText().equals("")) {
             Reservation reservation = new Reservation();
             reservation.setID(txtID.getText());
             reservation.setClientName(txtClientName.getText());
@@ -305,8 +357,40 @@ public class FrmReservations extends javax.swing.JFrame {
 
         } else {
             JOptionPane.showMessageDialog(null, "");
+        }*/
+            try {
+            Document data;
+            data = new Document() {};
+
+            data.put("ID", txtID.getText());
+            data.put("Client Name", txtClientName.getText());
+            data.put("Phone",txtPhone.getText());
+            data.put("Event Name", txtEventName.getText());
+            data.put("Date", txtDate.getText());
+            data.put("Payment Method", txtPayment.getText());
+            data.put("Specs", txtSpecs.getText());
+
+            Reservation.insertOne(data);
+            JOptionPane.showMessageDialog(this,  "Reservations Added");
+
+        } catch (Exception err) {
+            JOptionPane.showMessageDialog(this, "error: " + err.getMessage());
         }
     }//GEN-LAST:event_btnAddRActionPerformed
+
+    private void btnUpdateRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateRActionPerformed
+        // TODO add your handling code here:
+         MongoCursor<Document> query = Reservation.find().iterator();
+        
+        int total = table.getRowCount();
+        for(int i = 0; i<total; i++){
+            table.removeRow(0);
+        }
+        while(query.hasNext()){
+            ArrayList<Object> doc = new ArrayList<Object>(query.next().values());
+            table.addRow(doc.toArray());
+        }
+    }//GEN-LAST:event_btnUpdateRActionPerformed
 
     /**
      * @param args the command line arguments
@@ -342,11 +426,20 @@ public class FrmReservations extends javax.swing.JFrame {
             }
         });
     }
+    
+    public boolean Delete(String id){
+        DeleteResult answer = Reservation.deleteOne(new Document("_id", new ObjectId(id)));
+        if(answer.getDeletedCount()==1){
+            return true;
+        }
+        return false;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddR;
     private javax.swing.JButton btnCancelR;
     private javax.swing.JButton btnRemoveR;
+    private javax.swing.JButton btnUpdateR;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

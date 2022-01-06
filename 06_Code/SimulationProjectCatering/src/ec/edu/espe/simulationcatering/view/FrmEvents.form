@@ -71,13 +71,15 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel5" min="-2" pref="49" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                   <Component id="btnAddE" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="btnUpdateE" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                                   <Component id="btnRemoveE" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="btnCancelE" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtGuests" min="-2" pref="399" max="-2" attributes="0"/>
@@ -136,6 +138,7 @@
                   <Component id="btnAddE" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnRemoveE" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCancelE" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnUpdateE" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="107" max="-2" attributes="0"/>
@@ -262,6 +265,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtID">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnUpdateE">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Update"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateEActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

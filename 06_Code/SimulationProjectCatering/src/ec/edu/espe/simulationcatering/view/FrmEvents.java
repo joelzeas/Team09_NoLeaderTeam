@@ -1,19 +1,35 @@
 
 package ec.edu.espe.simulationcatering.view;
 
-import ec.edu.espe.simulationcatering.model.Event;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+import com.mongodb.client.result.DeleteResult;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.bson.Document;
+import org.bson.types.ObjectId;
+import utils.MongoConnection;
+
+
 
 /**
  *
  * @author Salma Villegas
  */
 public class FrmEvents extends javax.swing.JFrame {
-    ArrayList<Event>events;
-    static int code=1;
-    DefaultTableModel table;
+    //ArrayList<Event>events;
+    //static int code=1;
+    //DefaultTableModel table;
+    MongoCollection<Document> Event = new MongoConnection().obtenerDB().getCollection("Event");
+    DefaultTableModel table = new DefaultTableModel() {
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+
+    };
    
    
     /**
@@ -21,20 +37,30 @@ public class FrmEvents extends javax.swing.JFrame {
      */
     public FrmEvents() {
         initComponents();
-        events=new ArrayList();
-        table=new DefaultTableModel();
+        //events=new ArrayList();
+        //table=new DefaultTableModel();
         
         table.addColumn("ID");
         table.addColumn("Date");
         table.addColumn("Place");
         table.addColumn("Hour");
         table.addColumn("Guests");
-
+        
+        tblEvents.setModel(table);
         toProject();
     }
     
     public void toProject() {
-            table.setNumRows(events.size());
+        MongoCursor<Document> query = Event.find().iterator();
+
+        int total = table.getRowCount();
+        for (int i = 0; i < total; i++) {
+            table.removeRow(0);
+        }
+        while (query.hasNext()) {
+            ArrayList<Object> doc = new ArrayList<Object>(query.next().values());
+            table.addRow(doc.toArray());
+           /* table.setNumRows(events.size());
         for (int i = 0; i <events.size(); i++) {
             table.setValueAt(events.get(i).getID(), i, 0);
             table.setValueAt(events.get(i).getDate(), i, 1);
@@ -43,7 +69,8 @@ public class FrmEvents extends javax.swing.JFrame {
             table.setValueAt(events.get(i).getGuests(), i, 4);
 
         }
-        tblEvents.setModel(table);
+        tblEvents.setModel(table);*/
+    }
     
     }
 
@@ -74,6 +101,7 @@ public class FrmEvents extends javax.swing.JFrame {
         tblEvents = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
+        btnUpdateE = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -139,6 +167,13 @@ public class FrmEvents extends javax.swing.JFrame {
 
         jLabel6.setText("ID");
 
+        btnUpdateE.setText("Update");
+        btnUpdateE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateEActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,13 +197,15 @@ public class FrmEvents extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(10, 10, 10)
                                     .addComponent(btnAddE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnUpdateE)
                                     .addGap(87, 87, 87)
                                     .addComponent(btnRemoveE)
-                                    .addGap(77, 77, 77)
+                                    .addGap(18, 18, 18)
                                     .addComponent(btnCancelE))
                                 .addComponent(txtGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
@@ -211,7 +248,8 @@ public class FrmEvents extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddE)
                     .addComponent(btnRemoveE)
-                    .addComponent(btnCancelE))
+                    .addComponent(btnCancelE)
+                    .addComponent(btnUpdateE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
@@ -227,7 +265,7 @@ public class FrmEvents extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelEActionPerformed
 
     private void btnAddEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEActionPerformed
-        if (!txtID.getText().equals("") && !txtDate.getText().equals("") && !txtPlace.getText().equals("") && !txtHour.getText().equals("") && !txtGuests.getText().equals("")) {
+        /*if (!txtID.getText().equals("") && !txtDate.getText().equals("") && !txtPlace.getText().equals("") && !txtHour.getText().equals("") && !txtGuests.getText().equals("")) {
             Event event = new Event();
             event.setID(txtID.getText());
             event.setDate(txtDate.getText());
@@ -244,17 +282,63 @@ public class FrmEvents extends javax.swing.JFrame {
 
         } else {
             JOptionPane.showMessageDialog(null, "");
+        }*/
+        try {
+            Document data;
+            data = new Document() {};
+
+            data.put("ID", txtID.getText());
+            data.put("Date", txtDate.getText());
+            data.put("Place",txtPlace.getText());
+            data.put("Hour", txtHour.getText());
+            data.put("Guests", txtGuests.getText());
+
+            Event.insertOne(data);
+            JOptionPane.showMessageDialog(this,  "Event Added");
+
+        } catch (Exception err) {
+            JOptionPane.showMessageDialog(this, "error: " + err.getMessage());
         }
     }//GEN-LAST:event_btnAddEActionPerformed
 
     private void btnRemoveEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveEActionPerformed
-        if (tblEvents.getSelectedRow() < 0) {
+        /*if (tblEvents.getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(null, "Select record to delete");
         } else {
             events.remove(tblEvents.getSelectedRow());
             toProject();
+        }*/
+        int renglon = tblEvents.getSelectedRow();
+        if(renglon == -1){
+            JOptionPane.showMessageDialog(this, "Error ");
+            return;
+        }
+        String idRemove = tblEvents.getValueAt(renglon, 0).toString();
+        int respuesta = JOptionPane.showConfirmDialog(this, "Remove id"+ idRemove);
+        if(respuesta == JOptionPane.OK_OPTION){
+            boolean answerDelete = Delete(idRemove);
+            if(answerDelete==true){
+                JOptionPane.showMessageDialog(this, "correct delete");
+            }else{
+                JOptionPane.showMessageDialog(this, "no delete");
+
+            }
         }
     }//GEN-LAST:event_btnRemoveEActionPerformed
+
+    private void btnUpdateEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEActionPerformed
+        // TODO add your handling code here:
+        MongoCursor<Document> query = Event.find().iterator();
+        
+        int total = table.getRowCount();
+        for(int i = 0; i<total; i++){
+            table.removeRow(0);
+        }
+        while(query.hasNext()){
+            ArrayList<Object> doc = new ArrayList<Object>(query.next().values());
+            table.addRow(doc.toArray());
+        }
+    }//GEN-LAST:event_btnUpdateEActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,11 +374,20 @@ public class FrmEvents extends javax.swing.JFrame {
             }
         });
     }
+    
+    public boolean Delete(String id){
+        DeleteResult answer = Event.deleteOne(new Document("_id", new ObjectId(id)));
+        if(answer.getDeletedCount()==1){
+            return true;
+        }
+        return false;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddE;
     private javax.swing.JButton btnCancelE;
     private javax.swing.JButton btnRemoveE;
+    private javax.swing.JButton btnUpdateE;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

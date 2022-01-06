@@ -2,27 +2,43 @@
 package ec.edu.espe.simulationcatering.view;
 
 
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+import com.mongodb.client.result.DeleteResult;
 import ec.edu.espe.simulationcatering.model.Transport;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.bson.Document;
+import org.bson.types.ObjectId;
+import utils.MongoConnection;
 
 /**
  *
  * @author Salma Villegas
  */
 public class FrmTransport extends javax.swing.JFrame {
-    ArrayList<Transport>transports;
-    static int code=1;
-    DefaultTableModel table;
+    //ArrayList<Transport>transports;
+    //static int code=1;
+    //DefaultTableModel table;
+    
+      MongoCollection<Document> Transport = new MongoConnection().obtenerDB().getCollection("Transport");
+    DefaultTableModel table = new DefaultTableModel() {
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+
+    };
 
     /**
      * Creates new form FrmTransport
      */
     public FrmTransport() {
         initComponents();
-        transports=new ArrayList();
-        table=new DefaultTableModel();
+        //transports=new ArrayList();
+        //table=new DefaultTableModel();
         
         table.addColumn("ID");
         table.addColumn("Enrollment");
@@ -32,12 +48,22 @@ public class FrmTransport extends javax.swing.JFrame {
         table.addColumn("Destination");
         table.addColumn("Travel Time");
         table.addColumn("Gallons Gasoline");
-
+        
+        tblTransport.setModel(table);
         toProject();
     }
     
     private void toProject() {
-          table.setNumRows(transports.size());
+          MongoCursor<Document> query = Transport.find().iterator();
+
+        int total = table.getRowCount();
+        for (int i = 0; i < total; i++) {
+            table.removeRow(0);
+        }
+        while (query.hasNext()) {
+            ArrayList<Object> doc = new ArrayList<Object>(query.next().values());
+            table.addRow(doc.toArray());
+          /*table.setNumRows(transports.size());
         for (int i = 0; i <transports.size(); i++) {
             table.setValueAt(transports.get(i).getID(), i, 0);
             table.setValueAt(transports.get(i).getEnrollment(), i, 1);
@@ -49,7 +75,8 @@ public class FrmTransport extends javax.swing.JFrame {
             table.setValueAt(transports.get(i).getGallonsgasoline(), i, 7);
 
         }
-        tblTransport.setModel(table);
+        tblTransport.setModel(table);*/
+        }
     }
 
     /**
@@ -83,6 +110,7 @@ public class FrmTransport extends javax.swing.JFrame {
         tblTransport = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
+        btnUpdateT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,6 +174,13 @@ public class FrmTransport extends javax.swing.JFrame {
 
         jLabel9.setText("ID");
 
+        btnUpdateT.setText("Update");
+        btnUpdateT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateTActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,19 +229,21 @@ public class FrmTransport extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtTravelTime, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(11, 11, 11)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(98, 98, 98)
                                         .addComponent(btnAddT)
-                                        .addGap(72, 72, 72)))
+                                        .addGap(46, 46, 46)
+                                        .addComponent(btnUpdateT)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtGallonsGasoline)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(45, 45, 45)
+                                        .addGap(89, 89, 89)
                                         .addComponent(btnRemoveR)
-                                        .addGap(128, 128, 128)
+                                        .addGap(62, 62, 62)
                                         .addComponent(btnCancelT)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)))))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)))))))
                 .addGap(31, 31, 31))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
@@ -248,7 +285,8 @@ public class FrmTransport extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddT)
                     .addComponent(btnRemoveR)
-                    .addComponent(btnCancelT))
+                    .addComponent(btnCancelT)
+                    .addComponent(btnUpdateT))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -268,16 +306,32 @@ public class FrmTransport extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelTActionPerformed
 
     private void btnRemoveRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveRActionPerformed
-         if (tblTransport.getSelectedRow() < 0) {
+         /*if (tblTransport.getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(null, "Select record to delete");
         } else {
             transports.remove(tblTransport.getSelectedRow());
             toProject();
+        }*/
+             int renglon = tblTransport.getSelectedRow();
+        if(renglon == -1){
+            JOptionPane.showMessageDialog(this, "Error ");
+            return;
+        }
+        String idRemove = tblTransport.getValueAt(renglon, 0).toString();
+        int respuesta = JOptionPane.showConfirmDialog(this, "Remove id"+ idRemove);
+        if(respuesta == JOptionPane.OK_OPTION){
+            boolean answerDelete = Delete(idRemove);
+            if(answerDelete==true){
+                JOptionPane.showMessageDialog(this, "correct delete");
+            }else{
+                JOptionPane.showMessageDialog(this, "no delete");
+
+            }
         }
     }//GEN-LAST:event_btnRemoveRActionPerformed
 
     private void btnAddTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTActionPerformed
-           if (!txtID.getText().equals("") && !txtEnrollment.getText().equals("") && !txtDriverName.getText().equals("") && !txtType.getText().equals("") && !txtCapacity.getText().equals("") && !txtDestination.getText().equals("") && !txtTravelTime.getText().equals("") && !txtGallonsGasoline.getText().equals("")) {
+           /*if (!txtID.getText().equals("") && !txtEnrollment.getText().equals("") && !txtDriverName.getText().equals("") && !txtType.getText().equals("") && !txtCapacity.getText().equals("") && !txtDestination.getText().equals("") && !txtTravelTime.getText().equals("") && !txtGallonsGasoline.getText().equals("")) {
             Transport transport = new Transport();
             transport.setID(txtID.getText());
             transport.setEnrollment(txtEnrollment.getText());
@@ -300,8 +354,42 @@ public class FrmTransport extends javax.swing.JFrame {
 
         } else {
             JOptionPane.showMessageDialog(null, "");
+        }*/
+             try {
+            Document data;
+            data = new Document() {};
+
+            data.put("ID", txtID.getText());
+            data.put("Enrollment", txtEnrollment.getText());
+            data.put("Driver Name",txtDriverName.getText());
+            data.put("Type", txtType.getText());
+            data.put("Freight Capacity", txtCapacity.getText());
+            data.put("Destination", txtDestination.getText());
+            data.put("Travel Time", txtTravelTime.getText());
+            data.put("Gallons Gasoline", txtGallonsGasoline.getText());
+
+            Transport.insertOne(data);
+            JOptionPane.showMessageDialog(this,  "Transports Added");
+
+        } catch (Exception err) {
+            JOptionPane.showMessageDialog(this, "error: " + err.getMessage());
         }
+           
     }//GEN-LAST:event_btnAddTActionPerformed
+
+    private void btnUpdateTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateTActionPerformed
+        // TODO add your handling code here:
+        MongoCursor<Document> query = Transport.find().iterator();
+        
+        int total = table.getRowCount();
+        for(int i = 0; i<total; i++){
+            table.removeRow(0);
+        }
+        while(query.hasNext()){
+            ArrayList<Object> doc = new ArrayList<Object>(query.next().values());
+            table.addRow(doc.toArray());
+        }
+    }//GEN-LAST:event_btnUpdateTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -337,11 +425,21 @@ public class FrmTransport extends javax.swing.JFrame {
             }
         });
     }
+    
+        public boolean Delete(String id){
+        DeleteResult answer = Transport.deleteOne(new Document("_id", new ObjectId(id)));
+        if(answer.getDeletedCount()==1){
+            return true;
+        }
+        return false;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddT;
     private javax.swing.JButton btnCancelT;
     private javax.swing.JButton btnRemoveR;
+    private javax.swing.JButton btnUpdateT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
