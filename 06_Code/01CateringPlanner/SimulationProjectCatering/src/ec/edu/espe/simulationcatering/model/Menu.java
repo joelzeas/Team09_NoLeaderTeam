@@ -1,48 +1,46 @@
 package ec.edu.espe.simulationcatering.model;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  *
- * @author Joel Zeas
+ * @author Joel Zeas, Melanie Terán
  */
 public class Menu {
 
     private String name;
     private String components;
-    private int price;
+    private float price;
     private String description;
     private int menuCode;
+    private ArrayList<Ingredient> ingredients;
+    private ArrayList<Cookware> cookwares;
 
-    @Override
-    public String toString() {
-        return "Menu Data--->{" + "Name the menu is= " + name + ", components= " + components + ", price= " + price + ", Number to menu= " + description + ", Code to menu= " + menuCode + '}';
+    public void add(Ingredient ingredient) {
+        getIngredients().add(ingredient);
+    }
+
+    public void add(Cookware cookware) {
+        getCookwares().add(cookware);
     }
     
-    public Menu(String name, String components, int price, String description, int menuCode) {
+    public Menu(String name, String components, float price, String description, int menuCode, ArrayList<Ingredient> ingredients, ArrayList<Cookware> cookwares) {
         this.name = name;
         this.components = components;
         this.price = price;
         this.description = description;
         this.menuCode = menuCode;
+        this.ingredients = ingredients;
+        this.cookwares = cookwares;
     }
 
-    public Menu() {
-        
-        System.out.println("\n Menu ---> ");
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(" Enter name the menu ");
-        name = scanner.next();
-        System.out.println(" Enter components ");
-        components = scanner.next();
-        System.out.println(" Enter price  ");
-        price = scanner.nextInt();
-        System.out.println(" Number to menu  ");
-        description = scanner.next();
-        System.out.println(" Enter code to menu  ");
-        menuCode = scanner.nextInt();
- 
+    @Override
+    public String toString() {
+        return "Menu{" + "name=" + getName() + ", components=" + getComponents() + ", price=" + getPrice() + ", description=" + getDescription() + ", menuCode=" + getMenuCode() + ", ingredients=" + getIngredients() + ", cookwares=" + getCookwares() + '}';
     }
+    
+
+   
 
     /**
      * @return the name
@@ -73,20 +71,6 @@ public class Menu {
     }
 
     /**
-     * @return the price
-     */
-    public int getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    /**
      * @return the description
      */
     public String getDescription() {
@@ -114,4 +98,46 @@ public class Menu {
         this.menuCode = menuCode;
     }
 
-} 
+    /**
+     * @return the ingredients
+     */
+    public ArrayList<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    /**
+     * @param ingredients the ingredients to set
+     */
+    public void setIngredients(ArrayList<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    /**
+     * @return the cookwares
+     */
+    public ArrayList<Cookware> getCookwares() {
+        return cookwares;
+    }
+
+    /**
+     * @param cookwares the cookwares to set
+     */
+    public void setCookwares(ArrayList<Cookware> cookwares) {
+        this.cookwares = cookwares;
+    }
+
+    /**
+     * @return the price
+     */
+    public float getPrice() {
+        return price;
+    }
+
+    /**
+     * @param price the price to set
+     */
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+}

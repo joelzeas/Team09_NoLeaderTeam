@@ -1,14 +1,8 @@
 package ec.edu.espe.simulationcatering.model;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
-=======
-import java.util.Scanner;
->>>>>>> 9964592227a5dde979bb74ce8684faf7430321db
-
 /**
  *
- * @author Joel Zeas, Salma Villegas
+ * @author Joel Zeas
  */
 public class Reservation {
 
@@ -18,52 +12,20 @@ public class Reservation {
     private String date;
     private String paymentMethod;
     private String specs;
-    private ArrayList<Event> events;
-    private ArrayList<Transport> transports;
-    private ArrayList<Worker> workers;
 
-<<<<<<< HEAD
-    public Reservation(String clientName, int phone, String eventName, String date, String paymentMethod, String specs, ArrayList<Event> events, ArrayList<Transport> transports, ArrayList<Worker> workers) {
-=======
-     @Override
-    public String toString() {
-        return "Reservation Data--->{" + "Client name is= " + clientName + ", phone to client is= " + phone + ", name event is= " + eventName + ", date is= " + date + ", Payment Method is= " + paymentMethod + ", specs is= " + specs + '}';
-    }
+    
     
     public Reservation(String clientName, int phone, String eventName, String date, String paymentMethod, String specs) {
->>>>>>> 9964592227a5dde979bb74ce8684faf7430321db
         this.clientName = clientName;
         this.phone = phone;
         this.eventName = eventName;
         this.date = date;
         this.paymentMethod = paymentMethod;
         this.specs = specs;
-        this.events = events;
-        this.transports = transports;
-        this.workers = workers;
     }
 
     public Reservation() {
-<<<<<<< HEAD
-
-=======
     
-        System.out.println("\n Reservation ---> ");
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(" Enter Client name ");
-        clientName = scanner.next();
-        System.out.println(" Enter phone to client ");
-        phone = scanner.nextInt();
-        System.out.println(" Enter event name ");
-        eventName = scanner.next();
-        System.out.println(" Enter date ");
-        date = scanner.next();
-        System.out.println(" Enter Payment Method ");
-        paymentMethod = scanner.next();
-        System.out.println(" Enter specs ");
-        specs = scanner.next();
-        
->>>>>>> 9964592227a5dde979bb74ce8684faf7430321db
     }
 
     /**

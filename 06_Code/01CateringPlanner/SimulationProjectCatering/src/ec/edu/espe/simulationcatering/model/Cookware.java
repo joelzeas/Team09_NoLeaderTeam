@@ -1,6 +1,5 @@
 package ec.edu.espe.simulationcatering.model;
 
-import java.util.Scanner;
 
 /**
  *
@@ -17,7 +16,7 @@ public class Cookware {
 
     @Override
     public String toString() {
-        return "Cookware{" + "code=" + code + ", name=" + name + ", material=" + material + ", use=" + use + ", disponibility=" + disponibility + ", quantity=" + quantity + '}';
+        return "Cookware{" + "code=" + getCode() + ", name=" + getName() + ", material=" + getMaterial() + ", use=" + getUse() + ", disponibility=" + getDisponibility() + ", quantity=" + getQuantity() + '}';
     }
 
     /**
@@ -58,20 +57,7 @@ public class Cookware {
     }
 
     public Cookware() {
-        System.out.println("\n Details of the cookware ");
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(" Code ");
-        code = scanner.nextInt();
-        System.out.println(" Name ");
-        name = scanner.next();
-        System.out.println(" Material ");
-        material = scanner.next();
-        System.out.println(" Use ");
-        use = scanner.next();
-        System.out.println(" Disponibility ");
-        disponibility = scanner.next();
-        System.out.println(" Quantity ");
-        quantity = scanner.nextInt();
+        
     }
 
     /**
