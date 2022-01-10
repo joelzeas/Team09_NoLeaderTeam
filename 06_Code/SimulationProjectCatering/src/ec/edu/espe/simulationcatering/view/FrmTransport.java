@@ -376,13 +376,13 @@ public class FrmTransport extends javax.swing.JFrame {
             Transport.insertOne(data);
             JOptionPane.showMessageDialog(this, "Transports Added");
 
+            int gallonsGasoline = Integer.parseInt(txtGallonsGasoline.getText());
+            float priceOfGasoline = (float) ((2.55) * gallonsGasoline);
+            JOptionPane.showMessageDialog(this, "The price of " + txtGallonsGasoline.getText() + " gallons of gasoline is approximately $ " + priceOfGasoline);
+
         } catch (Exception err) {
             JOptionPane.showMessageDialog(this, "error: " + err.getMessage());
         }
-        float priceOfGasoline;
-        int gallonsGasoline = Integer.parseInt(txtGallonsGasoline.getText());
-        priceOfGasoline = (float) ((2.55) * gallonsGasoline);
-        JOptionPane.showMessageDialog(this, "The price of " + txtGallonsGasoline.getText() + " gallons of gasoline is approximately $ " + priceOfGasoline);
 
     }//GEN-LAST:event_btnAddTActionPerformed
 
