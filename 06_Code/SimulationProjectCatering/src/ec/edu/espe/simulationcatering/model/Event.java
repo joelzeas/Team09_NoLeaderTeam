@@ -15,7 +15,7 @@ public class Event {
     private String guests;
 
     public Event(String date, String place, String hour, int guests, ArrayList<Transport> transports, ArrayList<Menu> menus, ArrayList<Worker> workers) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ 
     }
     
     
@@ -128,7 +128,7 @@ public class Event {
     }
 
     public void add(Menu menu) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     
     }
 
     
