@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/C:/Users/Melanie/OneDrive/Documentos/OOP/Código/Team09_NoLeaderTeam/06_Code/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/view/FrmMenu.java</file>
+            <file>file:/C:/Users/JOEL/OneDrive/Escritorio/2DO%20SEMESTRE/POO%207490/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/view/FrmCateringPlanner.java</file>
+            <file>file:/C:/Users/JOEL/OneDrive/Escritorio/2DO%20SEMESTRE/POO%207490/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/view/FrmEvents.java</file>
+            <file>file:/C:/Users/JOEL/OneDrive/Escritorio/2DO%20SEMESTRE/POO%207490/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/view/FrmMenu.java</file>
+            <file>file:/C:/Users/JOEL/OneDrive/Escritorio/2DO%20SEMESTRE/POO%207490/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/view/FrmAbout.java</file>
+            <file>file:/C:/Users/JOEL/OneDrive/Escritorio/2DO%20SEMESTRE/POO%207490/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/view/FrmReservations.java</file>
+            <file>file:/C:/Users/JOEL/OneDrive/Escritorio/2DO%20SEMESTRE/POO%207490/PROJECT_GROUP_TEAM09/Team09_NoLeaderTeam/06_Code/SimulationProjectCatering/src/ec/edu/espe/simulationcatering/view/FrmTransport.java</file>
         </group>
->>>>>>> 8481b19d9c3edaf7d973fe87d9d595c5a7aa04f7
     </open-files>
 </project-private>
