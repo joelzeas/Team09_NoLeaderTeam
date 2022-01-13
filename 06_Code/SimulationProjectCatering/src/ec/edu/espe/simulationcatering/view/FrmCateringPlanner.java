@@ -38,6 +38,7 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         itmReservations = new javax.swing.JMenuItem();
         itmTransport = new javax.swing.JMenuItem();
+        itmMenu = new javax.swing.JMenuItem();
         itmEvents = new javax.swing.JMenuItem();
 
         jCheckBoxMenuItem1.setSelected(true);
@@ -108,6 +109,14 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
         });
         jMenu2.add(itmTransport);
 
+        itmMenu.setText("Menu");
+        itmMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmMenuActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itmMenu);
+
         itmEvents.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmEvents.setText("Events");
         itmEvents.addActionListener(new java.awt.event.ActionListener() {
@@ -155,14 +164,12 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
     }//GEN-LAST:event_itmAboutActionPerformed
 
     private void itmReservationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReservationsActionPerformed
-        // TODO add your handling code here:
         FrmReservations frmReservation = new FrmReservations();
         frmReservation.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmReservationsActionPerformed
 
     private void itmExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmExitActionPerformed
-        // TODO add your handling code here:
         if(this.isDisplayable()){
             boolean alreadyDisposed = true;
             this.dispose();
@@ -180,6 +187,12 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
         frmTransport.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmTransportActionPerformed
+
+    private void itmMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmMenuActionPerformed
+        FrmMenu frmMenu = new FrmMenu();
+        frmMenu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_itmMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +234,7 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
     private javax.swing.JMenuItem itmAbout;
     private javax.swing.JMenuItem itmEvents;
     private javax.swing.JMenuItem itmExit;
+    private javax.swing.JMenuItem itmMenu;
     private javax.swing.JMenuItem itmReservations;
     private javax.swing.JMenuItem itmTransport;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
