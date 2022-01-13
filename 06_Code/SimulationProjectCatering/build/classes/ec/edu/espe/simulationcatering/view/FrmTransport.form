@@ -216,6 +216,9 @@
     <Component class="javax.swing.JTextField" name="txtTravelTime">
     </Component>
     <Component class="javax.swing.JTextField" name="txtGallonsGasoline">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtGallonsGasolineActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAddT">
       <Properties>

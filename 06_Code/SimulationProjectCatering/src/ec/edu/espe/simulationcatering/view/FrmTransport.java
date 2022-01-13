@@ -1,6 +1,4 @@
-
 package ec.edu.espe.simulationcatering.view;
-
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
@@ -21,8 +19,8 @@ public class FrmTransport extends javax.swing.JFrame {
     //ArrayList<Transport>transports;
     //static int code=1;
     //DefaultTableModel table;
-    
-      MongoCollection<Document> Transport = new MongoConnection().obtenerDB().getCollection("Transport");
+
+    MongoCollection<Document> Transport = new MongoConnection().obtenerDB().getCollection("Transport");
     DefaultTableModel table = new DefaultTableModel() {
 
         @Override
@@ -39,7 +37,7 @@ public class FrmTransport extends javax.swing.JFrame {
         initComponents();
         //transports=new ArrayList();
         //table=new DefaultTableModel();
-        
+
         table.addColumn("ID");
         table.addColumn("Enrollment");
         table.addColumn("Driver Name");
@@ -48,13 +46,13 @@ public class FrmTransport extends javax.swing.JFrame {
         table.addColumn("Destination");
         table.addColumn("Travel Time");
         table.addColumn("Gallons Gasoline");
-        
+
         tblTransport.setModel(table);
         toProject();
     }
-    
+
     private void toProject() {
-          MongoCursor<Document> query = Transport.find().iterator();
+        MongoCursor<Document> query = Transport.find().iterator();
 
         int total = table.getRowCount();
         for (int i = 0; i < total; i++) {
@@ -63,7 +61,7 @@ public class FrmTransport extends javax.swing.JFrame {
         while (query.hasNext()) {
             ArrayList<Object> doc = new ArrayList<Object>(query.next().values());
             table.addRow(doc.toArray());
-          /*table.setNumRows(transports.size());
+            /*table.setNumRows(transports.size());
         for (int i = 0; i <transports.size(); i++) {
             table.setValueAt(transports.get(i).getID(), i, 0);
             table.setValueAt(transports.get(i).getEnrollment(), i, 1);
@@ -133,6 +131,12 @@ public class FrmTransport extends javax.swing.JFrame {
         txtDriverName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDriverNameActionPerformed(evt);
+            }
+        });
+
+        txtGallonsGasoline.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGallonsGasolineActionPerformed(evt);
             }
         });
 
@@ -300,30 +304,30 @@ public class FrmTransport extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDriverNameActionPerformed
 
     private void btnCancelTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelTActionPerformed
-       FrmCateringPlanner frmCateringPlanner = new FrmCateringPlanner();
+        FrmCateringPlanner frmCateringPlanner = new FrmCateringPlanner();
         frmCateringPlanner.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelTActionPerformed
 
     private void btnRemoveRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveRActionPerformed
-         /*if (tblTransport.getSelectedRow() < 0) {
+        /*if (tblTransport.getSelectedRow() < 0) {
             JOptionPane.showMessageDialog(null, "Select record to delete");
         } else {
             transports.remove(tblTransport.getSelectedRow());
             toProject();
         }*/
-             int renglon = tblTransport.getSelectedRow();
-        if(renglon == -1){
+        int renglon = tblTransport.getSelectedRow();
+        if (renglon == -1) {
             JOptionPane.showMessageDialog(this, "Error ");
             return;
         }
         String idRemove = tblTransport.getValueAt(renglon, 0).toString();
-        int respuesta = JOptionPane.showConfirmDialog(this, "Remove id"+ idRemove);
-        if(respuesta == JOptionPane.OK_OPTION){
+        int respuesta = JOptionPane.showConfirmDialog(this, "Remove id" + idRemove);
+        if (respuesta == JOptionPane.OK_OPTION) {
             boolean answerDelete = Delete(idRemove);
-            if(answerDelete==true){
+            if (answerDelete == true) {
                 JOptionPane.showMessageDialog(this, "correct delete");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "no delete");
 
             }
@@ -331,7 +335,7 @@ public class FrmTransport extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoveRActionPerformed
 
     private void btnAddTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTActionPerformed
-           /*if (!txtID.getText().equals("") && !txtEnrollment.getText().equals("") && !txtDriverName.getText().equals("") && !txtType.getText().equals("") && !txtCapacity.getText().equals("") && !txtDestination.getText().equals("") && !txtTravelTime.getText().equals("") && !txtGallonsGasoline.getText().equals("")) {
+        /*if (!txtID.getText().equals("") && !txtEnrollment.getText().equals("") && !txtDriverName.getText().equals("") && !txtType.getText().equals("") && !txtCapacity.getText().equals("") && !txtDestination.getText().equals("") && !txtTravelTime.getText().equals("") && !txtGallonsGasoline.getText().equals("")) {
             Transport transport = new Transport();
             transport.setID(txtID.getText());
             transport.setEnrollment(txtEnrollment.getText());
@@ -355,13 +359,14 @@ public class FrmTransport extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "");
         }*/
-             try {
+        try {
             Document data;
-            data = new Document() {};
+            data = new Document() {
+            };
 
             data.put("ID", txtID.getText());
             data.put("Enrollment", txtEnrollment.getText());
-            data.put("Driver Name",txtDriverName.getText());
+            data.put("Driver Name", txtDriverName.getText());
             data.put("Type", txtType.getText());
             data.put("Freight Capacity", txtCapacity.getText());
             data.put("Destination", txtDestination.getText());
@@ -369,27 +374,35 @@ public class FrmTransport extends javax.swing.JFrame {
             data.put("Gallons Gasoline", txtGallonsGasoline.getText());
 
             Transport.insertOne(data);
-            JOptionPane.showMessageDialog(this,  "Transports Added");
+            JOptionPane.showMessageDialog(this, "Transports Added");
+
+            int gallonsGasoline = Integer.parseInt(txtGallonsGasoline.getText());
+            float priceOfGasoline = (float) ((2.55) * gallonsGasoline);
+            JOptionPane.showMessageDialog(this, "The price of " + txtGallonsGasoline.getText() + " gallons of gasoline is approximately $ " + priceOfGasoline);
 
         } catch (Exception err) {
             JOptionPane.showMessageDialog(this, "error: " + err.getMessage());
         }
-           
+
     }//GEN-LAST:event_btnAddTActionPerformed
 
     private void btnUpdateTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateTActionPerformed
         // TODO add your handling code here:
         MongoCursor<Document> query = Transport.find().iterator();
-        
+
         int total = table.getRowCount();
-        for(int i = 0; i<total; i++){
+        for (int i = 0; i < total; i++) {
             table.removeRow(0);
         }
-        while(query.hasNext()){
+        while (query.hasNext()) {
             ArrayList<Object> doc = new ArrayList<Object>(query.next().values());
             table.addRow(doc.toArray());
         }
     }//GEN-LAST:event_btnUpdateTActionPerformed
+
+    private void txtGallonsGasolineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGallonsGasolineActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGallonsGasolineActionPerformed
 
     /**
      * @param args the command line arguments
@@ -425,10 +438,10 @@ public class FrmTransport extends javax.swing.JFrame {
             }
         });
     }
-    
-        public boolean Delete(String id){
+
+    public boolean Delete(String id) {
         DeleteResult answer = Transport.deleteOne(new Document("_id", new ObjectId(id)));
-        if(answer.getDeletedCount()==1){
+        if (answer.getDeletedCount() == 1) {
             return true;
         }
         return false;
@@ -461,5 +474,4 @@ public class FrmTransport extends javax.swing.JFrame {
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 
-    
 }
