@@ -40,6 +40,7 @@ public class FrmEvents extends javax.swing.JFrame {
         //events=new ArrayList();
         //table=new DefaultTableModel();
         
+        table.addColumn("Code");
         table.addColumn("ID");
         table.addColumn("Date");
         table.addColumn("Place");
