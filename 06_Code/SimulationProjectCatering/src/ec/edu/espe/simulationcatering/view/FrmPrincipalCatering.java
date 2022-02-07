@@ -7,12 +7,12 @@ import javax.swing.JOptionPane;
  *
  * @author Salma Villegas
  */
-public class FrmCateringPlanner extends javax.swing.JFrame {
+public class FrmPrincipalCatering extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmCateringPlanner
+     * Creates new form FrmPrincipalCatering
      */
-    public FrmCateringPlanner() {
+    public FrmPrincipalCatering() {
         initComponents();
     }
 
@@ -25,18 +25,10 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        MenuCateringPlanner = new javax.swing.JMenuBar();
+        MenuBarPrincipal = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         itmAbout = new javax.swing.JMenuItem();
         itmExit = new javax.swing.JMenuItem();
@@ -46,64 +38,39 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
         itmMenu = new javax.swing.JMenuItem();
         itmEvents = new javax.swing.JMenuItem();
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
-
-        jMenuItem1.setText("jMenuItem1");
-
-        jMenuItem2.setText("jMenuItem2");
-
-        jMenu3.setText("File");
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Edit");
-        jMenuBar1.add(jMenu4);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Welcome to your Catering Planner");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("What do you need to do today?");
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/simulationcatering/view/Portada.png"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("What do you need today?");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jLabel4)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
-        jMenu1.setBorder(null);
         jMenu1.setText("Catering Planner");
 
         itmAbout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -124,9 +91,8 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
         });
         jMenu1.add(itmExit);
 
-        MenuCateringPlanner.add(jMenu1);
+        MenuBarPrincipal.add(jMenu1);
 
-        jMenu2.setBorder(null);
         jMenu2.setText("New");
 
         itmReservations.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -147,6 +113,7 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
         });
         jMenu2.add(itmTransport);
 
+        itmMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmMenu.setText("Menu");
         itmMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +122,7 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
         });
         jMenu2.add(itmMenu);
 
-        itmEvents.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmEvents.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmEvents.setText("Events");
         itmEvents.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,9 +131,9 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
         });
         jMenu2.add(itmEvents);
 
-        MenuCateringPlanner.add(jMenu2);
+        MenuBarPrincipal.add(jMenu2);
 
-        setJMenuBar(MenuCateringPlanner);
+        setJMenuBar(MenuBarPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,48 +143,52 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void itmAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmAboutActionPerformed
-        FrmAbout frmAbout = new FrmAbout();
+        // TODO add your handling code here:
+         FrmAbout frmAbout = new FrmAbout();
         frmAbout.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmAboutActionPerformed
 
-    private void itmReservationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReservationsActionPerformed
-        FrmReservations frmReservation = new FrmReservations();
-        frmReservation.setVisible(true);
+    private void itmTransportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmTransportActionPerformed
+        // TODO add your handling code here:
+          FrmTransport1 frmTransport = new FrmTransport1();
+        frmTransport.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_itmReservationsActionPerformed
+    }//GEN-LAST:event_itmTransportActionPerformed
 
     private void itmExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmExitActionPerformed
+        // TODO add your handling code here:
         if(this.isDisplayable()){
             boolean alreadyDisposed = true;
             this.dispose();
-            JOptionPane.showMessageDialog(this, "Thank you for choosing us, come back soon...!! ");
+            JOptionPane.showMessageDialog(this, "Thank you for choosing us, come back soon");
         }
     }//GEN-LAST:event_itmExitActionPerformed
 
     private void itmEventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmEventsActionPerformed
+        // TODO add your handling code here:
          FrmEvents frmEvents = new FrmEvents();
         frmEvents.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmEventsActionPerformed
 
-    private void itmTransportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmTransportActionPerformed
-        FrmTransport frmTransport = new FrmTransport();
-        frmTransport.setVisible(true);
+    private void itmReservationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReservationsActionPerformed
+        // TODO add your handling code here:
+        FrmReservations1 frmReservation = new FrmReservations1();
+        frmReservation.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_itmTransportActionPerformed
+    }//GEN-LAST:event_itmReservationsActionPerformed
 
     private void itmMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmMenuActionPerformed
-        FrmMenu frmMenu = new FrmMenu();
+        // TODO add your handling code here:
+         FrmMenu frmMenu = new FrmMenu();
         frmMenu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmMenuActionPerformed
@@ -239,44 +210,36 @@ public class FrmCateringPlanner extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmCateringPlanner.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPrincipalCatering.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmCateringPlanner.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPrincipalCatering.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmCateringPlanner.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPrincipalCatering.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmCateringPlanner.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPrincipalCatering.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmCateringPlanner().setVisible(true);
+                new FrmPrincipalCatering().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar MenuCateringPlanner;
+    private javax.swing.JMenuBar MenuBarPrincipal;
     private javax.swing.JMenuItem itmAbout;
     private javax.swing.JMenuItem itmEvents;
     private javax.swing.JMenuItem itmExit;
     private javax.swing.JMenuItem itmMenu;
     private javax.swing.JMenuItem itmReservations;
     private javax.swing.JMenuItem itmTransport;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

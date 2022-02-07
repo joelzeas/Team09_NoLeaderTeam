@@ -90,16 +90,23 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("MENU");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Name:");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Components:");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Price:");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Description:");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Code:");
 
+        btnAdd.setBackground(new java.awt.Color(0, 153, 0));
+        btnAdd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +114,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnRemove.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnRemove.setText("Remove");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +122,8 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnCancel.setBackground(new java.awt.Color(255, 0, 0));
+        btnCancel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +131,7 @@ public class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        bynUpdate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         bynUpdate.setText("Update");
         bynUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +171,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Name", "Components", "Price", "Description", "Code"
+
             }
         ));
         jScrollPane1.setViewportView(tblMenu);
@@ -291,7 +302,7 @@ public class FrmMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "The total price of menus is " + priceSum);*/
 
         } catch (Exception err) {
-            JOptionPane.showMessageDialog(this, "error: " + err.getMessage());
+            JOptionPane.showMessageDialog(this, "Error: " + err.getMessage());
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -315,20 +326,20 @@ public class FrmMenu extends javax.swing.JFrame {
             return;
         }
         String idRemove = tblMenu.getValueAt(renglon, 0).toString();
-        int respuesta = JOptionPane.showConfirmDialog(this, "Remove id" + idRemove);
+        int respuesta = JOptionPane.showConfirmDialog(this, "Remove ID" + idRemove);
         if (respuesta == JOptionPane.OK_OPTION) {
             boolean answerDelete = Delete(idRemove);
             if (answerDelete == true) {
-                JOptionPane.showMessageDialog(this, "correct delete");
+                JOptionPane.showMessageDialog(this, "Correct Delete");
             } else {
-                JOptionPane.showMessageDialog(this, "no delete");
+                JOptionPane.showMessageDialog(this, "No Delete");
 
             }
         }
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        FrmCateringPlanner frmCateringPlanner = new FrmCateringPlanner();
+        FrmPrincipalCatering frmCateringPlanner = new FrmPrincipalCatering();
         frmCateringPlanner.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelActionPerformed

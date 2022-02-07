@@ -123,15 +123,20 @@ public class FrmEvents extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("EVENTS");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Date");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Place");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Hour");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Guests");
 
         btnCancelE.setBackground(new java.awt.Color(204, 0, 0));
+        btnCancelE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnCancelE.setText("Cancel");
         btnCancelE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +144,7 @@ public class FrmEvents extends javax.swing.JFrame {
             }
         });
 
+        btnRemoveE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnRemoveE.setText("Remove");
         btnRemoveE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +153,7 @@ public class FrmEvents extends javax.swing.JFrame {
         });
 
         btnAddE.setBackground(new java.awt.Color(102, 204, 0));
+        btnAddE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnAddE.setText("Add");
         btnAddE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,8 +174,10 @@ public class FrmEvents extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblEvents);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("ID");
 
+        btnUpdateE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUpdateE.setText("Update");
         btnUpdateE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,7 +199,7 @@ public class FrmEvents extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(21, 21, 21)
-                            .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE))
+                            .addComponent(txtID))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -262,7 +271,7 @@ public class FrmEvents extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelEActionPerformed
-       FrmCateringPlanner frmCateringPlanner = new FrmCateringPlanner();
+       FrmPrincipalCatering frmCateringPlanner = new FrmPrincipalCatering();
         frmCateringPlanner.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelEActionPerformed
@@ -300,7 +309,7 @@ public class FrmEvents extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,  "Event Added");
 
         } catch (Exception err) {
-            JOptionPane.showMessageDialog(this, "error: " + err.getMessage());
+            JOptionPane.showMessageDialog(this, "Error: " + err.getMessage());
         }
     }//GEN-LAST:event_btnAddEActionPerformed
 
@@ -317,13 +326,13 @@ public class FrmEvents extends javax.swing.JFrame {
             return;
         }
         String idRemove = tblEvents.getValueAt(renglon, 0).toString();
-        int respuesta = JOptionPane.showConfirmDialog(this, "Remove id"+ idRemove);
+        int respuesta = JOptionPane.showConfirmDialog(this, "Remove ID"+ idRemove);
         if(respuesta == JOptionPane.OK_OPTION){
             boolean answerDelete = Delete(idRemove);
             if(answerDelete==true){
-                JOptionPane.showMessageDialog(this, "correct delete");
+                JOptionPane.showMessageDialog(this, "Correct Delete");
             }else{
-                JOptionPane.showMessageDialog(this, "no delete");
+                JOptionPane.showMessageDialog(this, "No Delete");
 
             }
         }

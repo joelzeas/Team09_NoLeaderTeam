@@ -36,6 +36,8 @@ public class FrmAbout extends javax.swing.JFrame {
         jTextArea1.setText("The \"No Team Leader\" catering planner, will be able to help your business \nto improve its operation while optimizing its time, thanks to its simple \ngraphical interface your inventory problems, event planning and \nmenu organization will be much easier to solve. \nThanks for choosing us.");
         jScrollPane1.setViewportView(jTextArea1);
 
+        btnCateringPlanner.setBackground(new java.awt.Color(255, 204, 153));
+        btnCateringPlanner.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnCateringPlanner.setText("CATERING PLANNER");
         btnCateringPlanner.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +96,7 @@ public class FrmAbout extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCateringPlannerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCateringPlannerActionPerformed
-        FrmCateringPlanner frmCateringPlanner = new FrmCateringPlanner();
+        FrmPrincipalCatering frmCateringPlanner = new FrmPrincipalCatering();
         frmCateringPlanner.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCateringPlannerActionPerformed

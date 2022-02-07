@@ -1,4 +1,6 @@
+
 package ec.edu.espe.simulationcatering.view;
+
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
@@ -15,12 +17,8 @@ import utils.MongoConnection;
  *
  * @author Salma Villegas
  */
-public class FrmTransport extends javax.swing.JFrame {
-    //ArrayList<Transport>transports;
-    //static int code=1;
-    //DefaultTableModel table;
-
-    MongoCollection<Document> Transport = new MongoConnection().obtenerDB().getCollection("Transport");
+public class FrmTransport1 extends javax.swing.JFrame {
+        MongoCollection<Document> Transport = new MongoConnection().obtenerDB().getCollection("Transport");
     DefaultTableModel table = new DefaultTableModel() {
 
         @Override
@@ -33,7 +31,7 @@ public class FrmTransport extends javax.swing.JFrame {
     /**
      * Creates new form FrmTransport
      */
-    public FrmTransport() {
+    public FrmTransport1() {
         initComponents();
         //transports=new ArrayList();
         //table=new DefaultTableModel();
@@ -112,23 +110,29 @@ public class FrmTransport extends javax.swing.JFrame {
         btnUpdateT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("TRANSPORT");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Driver Name: ");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Enrollment:");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Type: ");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Freight Capacity: ");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Destination: ");
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Travel Time:");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Gallons of Gasoline:");
 
         txtDriverName.addActionListener(new java.awt.event.ActionListener() {
@@ -137,13 +141,8 @@ public class FrmTransport extends javax.swing.JFrame {
             }
         });
 
-        txtGallonsGasoline.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGallonsGasolineActionPerformed(evt);
-            }
-        });
-
         btnAddT.setBackground(new java.awt.Color(102, 204, 0));
+        btnAddT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnAddT.setText("Add");
         btnAddT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +151,7 @@ public class FrmTransport extends javax.swing.JFrame {
         });
 
         btnCancelT.setBackground(new java.awt.Color(153, 0, 0));
+        btnCancelT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnCancelT.setText("Cancel");
         btnCancelT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +159,7 @@ public class FrmTransport extends javax.swing.JFrame {
             }
         });
 
+        btnRemoveR.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnRemoveR.setText("Remove");
         btnRemoveR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,8 +180,10 @@ public class FrmTransport extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblTransport);
 
-        jLabel9.setText("ID:");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("ID");
 
+        btnUpdateT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUpdateT.setText("Update");
         btnUpdateT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,123 +195,92 @@ public class FrmTransport extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtEnrollment, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(txtDriverName, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(39, 39, 39)
+                                        .addComponent(jLabel5))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEnrollment)
+                            .addComponent(txtCapacity)
+                            .addComponent(txtDriverName)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtDestination))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnUpdateT)
+                                        .addGap(77, 77, 77)
+                                        .addComponent(btnAddT))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtTravelTime, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(11, 11, 11)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(98, 98, 98)
-                                        .addComponent(btnAddT)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnUpdateT)))
+                                        .addComponent(jLabel8)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtGallonsGasoline)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(89, 89, 89)
                                         .addComponent(btnRemoveR)
-                                        .addGap(62, 62, 62)
+                                        .addGap(84, 84, 84)
                                         .addComponent(btnCancelT)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)))))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192)))
                 .addGap(31, 31, 31))
-=======
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCapacity, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
-                            .addComponent(txtDestination))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> 2c9bbe08f51695e096e1c00db4def5608fa3ad47
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(298, 298, 298))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(btnAddT)
-                        .addGap(97, 97, 97)
-                        .addComponent(btnUpdateT)
-                        .addGap(75, 75, 75))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtTravelTime, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(btnRemoveR)
-                        .addGap(102, 102, 102)
-                        .addComponent(btnCancelT))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtGallonsGasoline, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(4, 4, 4)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(21, 21, 21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtEnrollment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtEnrollment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDriverName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(txtCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDestination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,7 +299,7 @@ public class FrmTransport extends javax.swing.JFrame {
                     .addComponent(btnUpdateT))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -338,62 +310,32 @@ public class FrmTransport extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDriverNameActionPerformed
 
     private void btnCancelTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelTActionPerformed
-        FrmCateringPlanner frmCateringPlanner = new FrmCateringPlanner();
+       FrmPrincipalCatering frmCateringPlanner = new FrmPrincipalCatering();
         frmCateringPlanner.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelTActionPerformed
 
     private void btnRemoveRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveRActionPerformed
-        /*if (tblTransport.getSelectedRow() < 0) {
-            JOptionPane.showMessageDialog(null, "Select record to delete");
-        } else {
-            transports.remove(tblTransport.getSelectedRow());
-            toProject();
-        }*/
-        int renglon = tblTransport.getSelectedRow();
+           int renglon = tblTransport.getSelectedRow();
         if (renglon == -1) {
             JOptionPane.showMessageDialog(this, "Error ");
             return;
         }
         String idRemove = tblTransport.getValueAt(renglon, 0).toString();
-        int respuesta = JOptionPane.showConfirmDialog(this, "Remove id" + idRemove);
+        int respuesta = JOptionPane.showConfirmDialog(this, "Remove ID" + idRemove);
         if (respuesta == JOptionPane.OK_OPTION) {
             boolean answerDelete = Delete(idRemove);
             if (answerDelete == true) {
-                JOptionPane.showMessageDialog(this, "correct delete");
+                JOptionPane.showMessageDialog(this, "Correct Delete");
             } else {
-                JOptionPane.showMessageDialog(this, "no delete");
+                JOptionPane.showMessageDialog(this, "No Delete");
 
             }
         }
     }//GEN-LAST:event_btnRemoveRActionPerformed
 
     private void btnAddTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTActionPerformed
-        /*if (!txtID.getText().equals("") && !txtEnrollment.getText().equals("") && !txtDriverName.getText().equals("") && !txtType.getText().equals("") && !txtCapacity.getText().equals("") && !txtDestination.getText().equals("") && !txtTravelTime.getText().equals("") && !txtGallonsGasoline.getText().equals("")) {
-            Transport transport = new Transport();
-            transport.setID(txtID.getText());
-            transport.setEnrollment(txtEnrollment.getText());
-            transport.setDrivername(txtDriverName.getText());
-            transport.setTypeTransport(txtType.getText());
-            transport.setFreightCapacity(txtCapacity.getText());
-            transport.setDestination(txtDestination.getText());
-            transport.setTravelTime(txtTravelTime.getText());
-            transport.setGallonsgasoline(txtGallonsGasoline.getText());
-            transports.add(transport);
-            txtID.setText("");
-            txtEnrollment.setText("");
-            txtDriverName.setText("");
-            txtType.setText("");
-            txtCapacity.setText("");
-            txtDestination.setText("");
-            txtTravelTime.setText("");
-            txtGallonsGasoline.setText("");
-            toProject();
-
-        } else {
-            JOptionPane.showMessageDialog(null, "");
-        }*/
-        try {
+          try {
             Document data;
             data = new Document() {
             };
@@ -415,14 +357,13 @@ public class FrmTransport extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "The price of " + txtGallonsGasoline.getText() + " gallons of gasoline is approximately $ " + priceOfGasoline);
 
         } catch (Exception err) {
-            JOptionPane.showMessageDialog(this, "error: " + err.getMessage());
+            JOptionPane.showMessageDialog(this, "Error: " + err.getMessage());
         }
-
     }//GEN-LAST:event_btnAddTActionPerformed
 
     private void btnUpdateTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateTActionPerformed
         // TODO add your handling code here:
-        MongoCursor<Document> query = Transport.find().iterator();
+         MongoCursor<Document> query = Transport.find().iterator();
 
         int total = table.getRowCount();
         for (int i = 0; i < total; i++) {
@@ -433,10 +374,6 @@ public class FrmTransport extends javax.swing.JFrame {
             table.addRow(doc.toArray());
         }
     }//GEN-LAST:event_btnUpdateTActionPerformed
-
-    private void txtGallonsGasolineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGallonsGasolineActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGallonsGasolineActionPerformed
 
     /**
      * @param args the command line arguments
@@ -455,32 +392,32 @@ public class FrmTransport extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmTransport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTransport1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmTransport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTransport1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmTransport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTransport1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmTransport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTransport1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmTransport().setVisible(true);
+                new FrmTransport1().setVisible(true);
             }
         });
     }
-
-    public boolean Delete(String id) {
+    
+      public boolean Delete(String id) {
         DeleteResult answer = Transport.deleteOne(new Document("_id", new ObjectId(id)));
         if (answer.getDeletedCount() == 1) {
             return true;
         }
         return false;
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddT;
@@ -508,4 +445,5 @@ public class FrmTransport extends javax.swing.JFrame {
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 
+    
 }
