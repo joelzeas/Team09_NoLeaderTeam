@@ -1,10 +1,11 @@
 package ec.edu.espe.simulationcatering.model;
+
 /**
  *
  * @author Salma Villegas
  */
 public class Transport {
-    
+
     private String ID;
     private String drivername;
     private String enrollment;
@@ -12,9 +13,10 @@ public class Transport {
     private String freightCapacity;
     private String destination;
     private String travelTime;
-    private String gallonsgasoline;
+    private String gallonsGasoline;
     
     
+
     private void seeID(String ID) {
 
     }
@@ -42,11 +44,10 @@ public class Transport {
     private void seeTime(String travelTime) {
 
     }
-    
-     private void enterGallonsGasoline(String gallonsgasoline) {
+
+    private void enterGallonsGasoline(String gallonsgasoline) {
 
     }
-
 
     public Transport(String ID, String drivername, String enrollment, String typeTransport, String freightCapacity, String destination, String travelTime, String gallonsgasoline) {
         this.ID = ID;
@@ -56,20 +57,19 @@ public class Transport {
         this.freightCapacity = freightCapacity;
         this.destination = destination;
         this.travelTime = travelTime;
-        this.gallonsgasoline = gallonsgasoline;
-       
+        this.gallonsGasoline = gallonsgasoline;
+
     }
 
     public Transport() {
-        
+
     }
 
     @Override
     public String toString() {
-        return "Transport{" + "ID=" + ID + ", drivername=" + drivername + ", enrollment=" + enrollment + ", typeTransport=" + typeTransport + ", freightCapacity=" + freightCapacity + ", destination=" + destination + ", travelTime=" + travelTime + ", gallonsgasoline=" + gallonsgasoline + '}';
+        return "Transport{" + "ID=" + ID + ", drivername=" + drivername + ", enrollment=" + enrollment + ", typeTransport=" + typeTransport + ", freightCapacity=" + freightCapacity + ", destination=" + destination + ", travelTime=" + travelTime + ", gallonsgasoline=" + gallonsGasoline + '}';
     }
-    
-   
+
     /**
      * @return the ID
      */
@@ -169,21 +169,21 @@ public class Transport {
     }
 
     /**
-     * @return the gallonsgasoline
+     * @return the gallonsGasoline
      */
     public String getGallonsgasoline() {
-        return gallonsgasoline;
+        return gallonsGasoline;
     }
 
     /**
-     * @param gallonsgasoline the gallonsgasoline to set
+     * @param gallonsgasoline the gallonsGasoline to set
      */
     public void setGallonsgasoline(String gallonsgasoline) {
-        this.gallonsgasoline = gallonsgasoline;
+        this.gallonsGasoline = gallonsgasoline;
     }
 
     public void getGallonsGasoline() {
-        
+
     }
 
 }
