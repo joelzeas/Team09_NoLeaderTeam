@@ -1,4 +1,3 @@
-
 package ec.edu.espe.simulationcatering.view;
 
 import javax.swing.JOptionPane;
@@ -54,6 +53,12 @@ public class FrmLoginIn extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Password:");
+
+        txtUserName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUserNameKeyTyped(evt);
+            }
+        });
 
         btnExitL.setBackground(new java.awt.Color(255, 0, 0));
         btnExitL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -155,7 +160,7 @@ public class FrmLoginIn extends javax.swing.JFrame {
     private void btnExitLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitLActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-        
+
     }//GEN-LAST:event_btnExitLActionPerformed
 
     private void btnEnterLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnterLMouseClicked
@@ -181,12 +186,24 @@ public class FrmLoginIn extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnEnterLMouseClicked
-    
+
     private void btnEnterLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterLActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEnterLActionPerformed
 
- /**
+    private void txtUserNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserNameKeyTyped
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            JOptionPane.showMessageDialog(this, "this field must be only filled with letters");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "this field must be only filled with letters");
+
+        } else {
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtUserNameKeyTyped
+
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -200,16 +217,24 @@ public class FrmLoginIn extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmLoginIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoginIn.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmLoginIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoginIn.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmLoginIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoginIn.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmLoginIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLoginIn.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
