@@ -193,11 +193,11 @@ public class FrmLoginIn extends javax.swing.JFrame {
 
     private void txtUserNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserNameKeyTyped
         if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
-            JOptionPane.showMessageDialog(this, "this field must be only filled with letters");
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters");
         } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
-            JOptionPane.showMessageDialog(this, "this field must be only filled with letters");
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters");
 
-        } else {
+        } else{
 
             // do nothing
         }

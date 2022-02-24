@@ -1,4 +1,4 @@
-package ec.edu.espe.simulationcatering.view;
+package ec.edu.espe.simulationcatering.model;
 
 import ec.edu.espe.simulationcatering.model.Cookware;
 import ec.edu.espe.simulationcatering.model.Event;
