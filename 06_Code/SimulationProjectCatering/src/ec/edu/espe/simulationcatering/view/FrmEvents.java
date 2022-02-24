@@ -101,7 +101,7 @@ public class FrmEvents extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblEvents = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
+        txtIDEvents = new javax.swing.JTextField();
         btnUpdateE = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -129,11 +129,23 @@ public class FrmEvents extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Place");
 
+        txtPlace.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPlaceKeyTyped(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Hour");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Guests");
+
+        txtGuests.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtGuestsKeyTyped(evt);
+            }
+        });
 
         btnCancelE.setBackground(new java.awt.Color(204, 0, 0));
         btnCancelE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -177,6 +189,12 @@ public class FrmEvents extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("ID");
 
+        txtIDEvents.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIDEventsKeyTyped(evt);
+            }
+        });
+
         btnUpdateE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUpdateE.setText("Update");
         btnUpdateE.addActionListener(new java.awt.event.ActionListener() {
@@ -199,7 +217,7 @@ public class FrmEvents extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(21, 21, 21)
-                            .addComponent(txtID))
+                            .addComponent(txtIDEvents))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -239,7 +257,7 @@ public class FrmEvents extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIDEvents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -299,7 +317,7 @@ public class FrmEvents extends javax.swing.JFrame {
             Document data;
             data = new Document() {};
 
-            data.put("ID", txtID.getText());
+            data.put("ID", txtIDEvents.getText());
             data.put("Date", txtDate.getText());
             data.put("Place",txtPlace.getText());
             data.put("Hour", txtHour.getText());
@@ -351,6 +369,45 @@ public class FrmEvents extends javax.swing.JFrame {
             table.addRow(doc.toArray());
         }
     }//GEN-LAST:event_btnUpdateEActionPerformed
+
+    private void txtIDEventsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDEventsKeyTyped
+        // TODO add your handling code here:
+             if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtIDEventsKeyTyped
+
+    private void txtPlaceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPlaceKeyTyped
+        // TODO add your handling code here:
+              if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtPlaceKeyTyped
+
+    private void txtGuestsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGuestsKeyTyped
+        // TODO add your handling code here:
+                      if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtGuestsKeyTyped
 
     /**
      * @param args the command line arguments
@@ -413,7 +470,7 @@ public class FrmEvents extends javax.swing.JFrame {
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtGuests;
     private javax.swing.JTextField txtHour;
-    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtIDEvents;
     private javax.swing.JTextField txtPlace;
     // End of variables declaration//GEN-END:variables
 }

@@ -228,6 +228,7 @@
     <Component class="javax.swing.JTextField" name="txtDriverName">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDriverNameActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDriverNameKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtEnrollment">
@@ -237,10 +238,16 @@
     <Component class="javax.swing.JTextField" name="txtCapacity">
     </Component>
     <Component class="javax.swing.JTextField" name="txtDestination">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDestinationKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTravelTime">
     </Component>
     <Component class="javax.swing.JTextField" name="txtGallonsGasoline">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtGallonsGasolineKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAddT">
       <Properties>
@@ -353,6 +360,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtID">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtIDKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdateT">
       <Properties>

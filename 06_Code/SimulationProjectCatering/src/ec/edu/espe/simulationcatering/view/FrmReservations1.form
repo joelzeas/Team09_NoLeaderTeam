@@ -230,8 +230,14 @@
     <Component class="javax.swing.JTextField" name="txtClientName">
     </Component>
     <Component class="javax.swing.JTextField" name="txtPhone">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPhoneKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtEventName">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEventNameKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDate">
       <Events>
@@ -349,6 +355,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtID">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtIDKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdateR">
       <Properties>

@@ -28,6 +28,7 @@ public class FrmPrincipalCatering extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         MenuBarPrincipal = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         itmAbout = new javax.swing.JMenuItem();
@@ -48,28 +49,40 @@ public class FrmPrincipalCatering extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("What do you need today?");
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/breakfast-buffet.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 23, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(148, 148, 148))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(104, 104, 104))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(30, 30, 30)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel2)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addContainerGap())
         );
+
+        MenuBarPrincipal.setBackground(new java.awt.Color(51, 153, 0));
 
         jMenu1.setText("Catering Planner");
 
@@ -238,6 +251,7 @@ public class FrmPrincipalCatering extends javax.swing.JFrame {
     private javax.swing.JMenuItem itmTransport;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;

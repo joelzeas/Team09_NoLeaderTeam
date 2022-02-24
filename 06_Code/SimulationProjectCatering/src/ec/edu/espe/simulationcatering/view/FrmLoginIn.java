@@ -37,7 +37,7 @@ public class FrmLoginIn extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 102));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("CATERING PLANNER");
@@ -69,7 +69,7 @@ public class FrmLoginIn extends javax.swing.JFrame {
             }
         });
 
-        btnEnterL.setBackground(new java.awt.Color(255, 204, 0));
+        btnEnterL.setBackground(new java.awt.Color(0, 153, 51));
         btnEnterL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEnterL.setText("Enter");
         btnEnterL.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -80,6 +80,17 @@ public class FrmLoginIn extends javax.swing.JFrame {
         btnEnterL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEnterLActionPerformed(evt);
+            }
+        });
+
+        txtPasswordL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordLActionPerformed(evt);
+            }
+        });
+        txtPasswordL.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPasswordLKeyTyped(evt);
             }
         });
 
@@ -97,20 +108,20 @@ public class FrmLoginIn extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(67, 67, 67))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnExitL)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(btnExitL)
                         .addGap(49, 49, 49)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
+                        .addGap(92, 92, 92)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtPasswordL, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                             .addComponent(txtUserName))))
@@ -123,11 +134,11 @@ public class FrmLoginIn extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
+                        .addGap(82, 82, 82)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
+                        .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(txtPasswordL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -136,7 +147,7 @@ public class FrmLoginIn extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEnterL)
                     .addComponent(btnExitL))
@@ -151,7 +162,7 @@ public class FrmLoginIn extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -193,15 +204,32 @@ public class FrmLoginIn extends javax.swing.JFrame {
 
     private void txtUserNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserNameKeyTyped
         if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with letters");
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, incorrect password");
         } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with letters");
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, incorrect password");
 
         } else{
 
             // do nothing
         }
     }//GEN-LAST:event_txtUserNameKeyTyped
+
+    private void txtPasswordLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordLActionPerformed
+
+    private void txtPasswordLKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordLKeyTyped
+        // TODO add your handling code here:
+           if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, incorrect numbers");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, incorrect password");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtPasswordLKeyTyped
 
     /**
      * @param args the command line arguments

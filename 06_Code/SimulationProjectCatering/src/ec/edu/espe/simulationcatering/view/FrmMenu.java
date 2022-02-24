@@ -105,6 +105,21 @@ public class FrmMenu extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Code:");
 
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNameKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
+            }
+        });
+
+        txtCode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodeKeyTyped(evt);
+            }
+        });
+
         btnAdd.setBackground(new java.awt.Color(0, 153, 0));
         btnAdd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnAdd.setText("Add");
@@ -343,6 +358,36 @@ public class FrmMenu extends javax.swing.JFrame {
         frmCateringPlanner.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameKeyReleased
+
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+        // TODO add your handling code here:
+                      if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtNameKeyTyped
+
+    private void txtCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodeKeyTyped
+        // TODO add your handling code here:
+                      if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'b') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtCodeKeyTyped
 
     /**
      * @param args the command line arguments

@@ -139,6 +139,23 @@ public class FrmTransport1 extends javax.swing.JFrame {
                 txtDriverNameActionPerformed(evt);
             }
         });
+        txtDriverName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDriverNameKeyTyped(evt);
+            }
+        });
+
+        txtDestination.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDestinationKeyTyped(evt);
+            }
+        });
+
+        txtGallonsGasoline.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtGallonsGasolineKeyTyped(evt);
+            }
+        });
 
         btnAddT.setBackground(new java.awt.Color(102, 204, 0));
         btnAddT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -181,6 +198,12 @@ public class FrmTransport1 extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("ID");
+
+        txtID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIDKeyTyped(evt);
+            }
+        });
 
         btnUpdateT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUpdateT.setText("Update");
@@ -373,6 +396,58 @@ public class FrmTransport1 extends javax.swing.JFrame {
             table.addRow(doc.toArray());
         }
     }//GEN-LAST:event_btnUpdateTActionPerformed
+
+    private void txtIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyTyped
+        // TODO add your handling code here:
+                      if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtIDKeyTyped
+
+    private void txtDestinationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDestinationKeyTyped
+        // TODO add your handling code here:
+                      if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtDestinationKeyTyped
+
+    private void txtGallonsGasolineKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGallonsGasolineKeyTyped
+        // TODO add your handling code here:
+                      if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtGallonsGasolineKeyTyped
+
+    private void txtDriverNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDriverNameKeyTyped
+        // TODO add your handling code here:
+                      if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtDriverNameKeyTyped
 
     /**
      * @param args the command line arguments

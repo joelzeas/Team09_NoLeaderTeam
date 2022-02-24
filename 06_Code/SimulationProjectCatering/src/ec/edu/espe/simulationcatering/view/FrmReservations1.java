@@ -137,6 +137,18 @@ public class FrmReservations1 extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Specs: ");
 
+        txtPhone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPhoneKeyTyped(evt);
+            }
+        });
+
+        txtEventName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEventNameKeyTyped(evt);
+            }
+        });
+
         txtDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDateActionPerformed(evt);
@@ -190,6 +202,12 @@ public class FrmReservations1 extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("ID");
+
+        txtID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIDKeyTyped(evt);
+            }
+        });
 
         btnUpdateR.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUpdateR.setText("Update");
@@ -397,6 +415,45 @@ public class FrmReservations1 extends javax.swing.JFrame {
             table.addRow(doc.toArray());
         }
     }//GEN-LAST:event_btnUpdateRActionPerformed
+
+    private void txtPhoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyTyped
+        // TODO add your handling code here:
+                      if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtPhoneKeyTyped
+
+    private void txtEventNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEventNameKeyTyped
+        // TODO add your handling code here:
+                      if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtEventNameKeyTyped
+
+    private void txtIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyTyped
+        // TODO add your handling code here:
+                      if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+
+        } else{
+
+            // do nothing
+        }
+    }//GEN-LAST:event_txtIDKeyTyped
 
     /**
      * @param args the command line arguments
