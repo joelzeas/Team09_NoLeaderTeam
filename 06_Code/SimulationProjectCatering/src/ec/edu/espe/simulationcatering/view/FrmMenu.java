@@ -307,15 +307,14 @@ public class FrmMenu extends javax.swing.JFrame {
             data.put("Price", txtPrice.getText());
             data.put("Description", txtDescription.getText());
             data.put("Code", txtCode.getText());
-            
+
             Menu.insertOne(data);
             JOptionPane.showMessageDialog(this, "Menu Added");
-            
+
             /*int price = Integer.parseInt(txtPrice.getText());
             float priceSum = 0;
             priceSum = (float) (priceSum + price);
             JOptionPane.showMessageDialog(this, "The total price of menus is " + priceSum);*/
-
         } catch (Exception err) {
             JOptionPane.showMessageDialog(this, "Error: " + err.getMessage());
         }
@@ -364,28 +363,30 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNameKeyReleased
 
     private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
-        // TODO add your handling code here:
-                      if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+        String space = "";
+        char blankSpace = space.charAt(0);
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
             JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            evt.setKeyChar(blankSpace);
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-' || evt.getKeyChar() == '!' || evt.getKeyChar() == '#' || evt.getKeyChar() == '$' || evt.getKeyChar() == '$' || evt.getKeyChar() == '%' || evt.getKeyChar() == '&' || evt.getKeyChar() == '_' || evt.getKeyChar() == ':' || evt.getKeyChar() == ';' || evt.getKeyChar() == '?' || evt.getKeyChar() == '¿' || evt.getKeyChar() == '(' || evt.getKeyChar() == ')' || evt.getKeyChar() == '=') {
             JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+            evt.setKeyChar(blankSpace);
 
-        } else{
+        } else {
 
             // do nothing
         }
     }//GEN-LAST:event_txtNameKeyTyped
 
     private void txtCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodeKeyTyped
-        // TODO add your handling code here:
-                      if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'b') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
 
-        } else{
+        } else {
 
-            // do nothing
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+            String space = "";
+            char blankSpace = space.charAt(0);
+            evt.setKeyChar(blankSpace);
         }
     }//GEN-LAST:event_txtCodeKeyTyped
 

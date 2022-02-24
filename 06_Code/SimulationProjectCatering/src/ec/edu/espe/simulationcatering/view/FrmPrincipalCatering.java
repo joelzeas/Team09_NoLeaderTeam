@@ -171,7 +171,7 @@ public class FrmPrincipalCatering extends javax.swing.JFrame {
 
     private void itmTransportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmTransportActionPerformed
         // TODO add your handling code here:
-          FrmTransport1 frmTransport = new FrmTransport1();
+          FrmTransport frmTransport = new FrmTransport();
         frmTransport.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmTransportActionPerformed
@@ -194,7 +194,7 @@ public class FrmPrincipalCatering extends javax.swing.JFrame {
 
     private void itmReservationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmReservationsActionPerformed
         // TODO add your handling code here:
-        FrmReservations1 frmReservation = new FrmReservations1();
+        FrmReservations frmReservation = new FrmReservations();
         frmReservation.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmReservationsActionPerformed

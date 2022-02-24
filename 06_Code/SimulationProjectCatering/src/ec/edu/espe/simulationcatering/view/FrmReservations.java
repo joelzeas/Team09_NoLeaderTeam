@@ -1,6 +1,4 @@
-
 package ec.edu.espe.simulationcatering.view;
-
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
@@ -17,8 +15,9 @@ import utils.MongoConnection;
  *
  * @author Salma Villegas
  */
-public class FrmReservations1 extends javax.swing.JFrame {
-     MongoCollection<Document> Reservation = new MongoConnection().obtenerDB().getCollection("Reservation");
+public class FrmReservations extends javax.swing.JFrame {
+
+    MongoCollection<Document> Reservation = new MongoConnection().obtenerDB().getCollection("Reservation");
     DefaultTableModel table = new DefaultTableModel() {
 
         @Override
@@ -31,11 +30,11 @@ public class FrmReservations1 extends javax.swing.JFrame {
     /**
      * Creates new form FrmReservations
      */
-    public FrmReservations1() {
+    public FrmReservations() {
         initComponents();
         //reservations=new ArrayList();
         //table=new DefaultTableModel();
-        
+
         table.addColumn("Code");
         table.addColumn("ID");
         table.addColumn("Client Name");
@@ -44,13 +43,13 @@ public class FrmReservations1 extends javax.swing.JFrame {
         table.addColumn("Date");
         table.addColumn("Payment Method");
         table.addColumn("Specs");
-        
+
         tblReservations.setModel(table);
         toProject();
     }
 
-      private void toProject() {
-          MongoCursor<Document> query = Reservation.find().iterator();
+    private void toProject() {
+        MongoCursor<Document> query = Reservation.find().iterator();
 
         int total = table.getRowCount();
         for (int i = 0; i < total; i++) {
@@ -59,7 +58,7 @@ public class FrmReservations1 extends javax.swing.JFrame {
         while (query.hasNext()) {
             ArrayList<Object> doc = new ArrayList<Object>(query.next().values());
             table.addRow(doc.toArray());
-        /*table.setNumRows(reservations.size());
+            /*table.setNumRows(reservations.size());
         for (int i = 0; i <reservations.size(); i++) {
             table.setValueAt(reservations.get(i).getID(), i, 0);
             table.setValueAt(reservations.get(i).getClientName(), i, 1);
@@ -70,9 +69,9 @@ public class FrmReservations1 extends javax.swing.JFrame {
             table.setValueAt(reservations.get(i).getSpecs(), i, 6);
         }
         tblReservations.setModel(table);*/
-      }
+        }
     }
-   
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -136,6 +135,12 @@ public class FrmReservations1 extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Specs: ");
+
+        txtClientName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtClientNameKeyTyped(evt);
+            }
+        });
 
         txtPhone.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -340,23 +345,23 @@ public class FrmReservations1 extends javax.swing.JFrame {
             reservations.remove(tblReservations.getSelectedRow());
             toProject();
         }*/
-                int renglon = tblReservations.getSelectedRow();
-        if(renglon == -1){
+        int renglon = tblReservations.getSelectedRow();
+        if (renglon == -1) {
             JOptionPane.showMessageDialog(this, "Error ");
             return;
         }
         String idRemove = tblReservations.getValueAt(renglon, 0).toString();
-        int respuesta = JOptionPane.showConfirmDialog(this, "Remove ID"+ idRemove);
-        if(respuesta == JOptionPane.OK_OPTION){
+        int respuesta = JOptionPane.showConfirmDialog(this, "Remove ID" + idRemove);
+        if (respuesta == JOptionPane.OK_OPTION) {
             boolean answerDelete = Delete(idRemove);
-            if(answerDelete==true){
+            if (answerDelete == true) {
                 JOptionPane.showMessageDialog(this, "Correct Delete");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "No Delete");
 
             }
         }
-        
+
     }//GEN-LAST:event_btnRemoveRActionPerformed
 
     private void btnAddRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRActionPerformed
@@ -382,20 +387,21 @@ public class FrmReservations1 extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "");
         }*/
-                try {
+        try {
             Document data;
-            data = new Document() {};
+            data = new Document() {
+            };
 
             data.put("ID", txtID.getText());
             data.put("Client Name", txtClientName.getText());
-            data.put("Phone",txtPhone.getText());
+            data.put("Phone", txtPhone.getText());
             data.put("Event Name", txtEventName.getText());
             data.put("Date", txtDate.getText());
             data.put("Payment Method", txtPayment.getText());
             data.put("Specs", txtSpecs.getText());
 
             Reservation.insertOne(data);
-            JOptionPane.showMessageDialog(this,  "Reservations Added");
+            JOptionPane.showMessageDialog(this, "Reservations Added");
 
         } catch (Exception err) {
             JOptionPane.showMessageDialog(this, "Error: " + err.getMessage());
@@ -404,56 +410,74 @@ public class FrmReservations1 extends javax.swing.JFrame {
 
     private void btnUpdateRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateRActionPerformed
         // TODO add your handling code here:
-         MongoCursor<Document> query = Reservation.find().iterator();
-        
+        MongoCursor<Document> query = Reservation.find().iterator();
+
         int total = table.getRowCount();
-        for(int i = 0; i<total; i++){
+        for (int i = 0; i < total; i++) {
             table.removeRow(0);
         }
-        while(query.hasNext()){
+        while (query.hasNext()) {
             ArrayList<Object> doc = new ArrayList<Object>(query.next().values());
             table.addRow(doc.toArray());
         }
     }//GEN-LAST:event_btnUpdateRActionPerformed
 
     private void txtPhoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyTyped
-        // TODO add your handling code here:
-                      if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
 
-        } else{
+        } else {
 
-            // do nothing
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+            String space = "";
+            char blankSpace = space.charAt(0);
+            evt.setKeyChar(blankSpace);
         }
     }//GEN-LAST:event_txtPhoneKeyTyped
 
     private void txtEventNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEventNameKeyTyped
         // TODO add your handling code here:
-                      if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+        String space = "";
+        char blankSpace = space.charAt(0);
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
             JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            evt.setKeyChar(blankSpace);
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-' || evt.getKeyChar() == '!' || evt.getKeyChar() == '#' || evt.getKeyChar() == '$' || evt.getKeyChar() == '$' || evt.getKeyChar() == '%' || evt.getKeyChar() == '&' || evt.getKeyChar() == '_' || evt.getKeyChar() == ':' || evt.getKeyChar() == ';' || evt.getKeyChar() == '?' || evt.getKeyChar() == '¿' || evt.getKeyChar() == '(' || evt.getKeyChar() == ')' || evt.getKeyChar() == '=') {
             JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+            evt.setKeyChar(blankSpace);
 
-        } else{
+        } else {
 
             // do nothing
         }
     }//GEN-LAST:event_txtEventNameKeyTyped
 
     private void txtIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyTyped
-        // TODO add your handling code here:
-                      if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
 
-        } else{
+        } else {
+
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+            String space = "";
+            char blankSpace = space.charAt(0);
+            evt.setKeyChar(blankSpace);
+        }
+    }//GEN-LAST:event_txtIDKeyTyped
+
+    private void txtClientNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtClientNameKeyTyped
+        String space = "";
+        char blankSpace = space.charAt(0);
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+            evt.setKeyChar(blankSpace);
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-' || evt.getKeyChar() == '!' || evt.getKeyChar() == '#' || evt.getKeyChar() == '$' || evt.getKeyChar() == '$' || evt.getKeyChar() == '%' || evt.getKeyChar() == '&' || evt.getKeyChar() == '_' || evt.getKeyChar() == ':' || evt.getKeyChar() == ';' || evt.getKeyChar() == '?' || evt.getKeyChar() == '¿' || evt.getKeyChar() == '(' || evt.getKeyChar() == ')' || evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+            evt.setKeyChar(blankSpace);
+
+        } else {
 
             // do nothing
         }
-    }//GEN-LAST:event_txtIDKeyTyped
+    }//GEN-LAST:event_txtClientNameKeyTyped
 
     /**
      * @param args the command line arguments
@@ -469,31 +493,41 @@ public class FrmReservations1 extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmReservations1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmReservations.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmReservations1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmReservations.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmReservations1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmReservations.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmReservations1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmReservations.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmReservations1().setVisible(true);
+                new FrmReservations().setVisible(true);
             }
         });
     }
-    
-        public boolean Delete(String id){
+
+    public boolean Delete(String id) {
         DeleteResult answer = Reservation.deleteOne(new Document("_id", new ObjectId(id)));
-        if(answer.getDeletedCount()==1){
+        if (answer.getDeletedCount() == 1) {
             return true;
         }
         return false;
@@ -525,4 +559,3 @@ public class FrmReservations1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtSpecs;
     // End of variables declaration//GEN-END:variables
 }
-  

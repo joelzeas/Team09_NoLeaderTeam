@@ -1,4 +1,3 @@
-
 package ec.edu.espe.simulationcatering.view;
 
 import com.mongodb.client.MongoCollection;
@@ -11,13 +10,12 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 import utils.MongoConnection;
 
-
-
 /**
  *
  * @author Salma Villegas
  */
 public class FrmEvents extends javax.swing.JFrame {
+
     //ArrayList<Event>events;
     //static int code=1;
     //DefaultTableModel table;
@@ -30,8 +28,7 @@ public class FrmEvents extends javax.swing.JFrame {
         }
 
     };
-   
-   
+
     /**
      * Creates new form FrmEvents
      */
@@ -39,18 +36,18 @@ public class FrmEvents extends javax.swing.JFrame {
         initComponents();
         //events=new ArrayList();
         //table=new DefaultTableModel();
-        
+
         table.addColumn("Code");
         table.addColumn("ID");
         table.addColumn("Date");
         table.addColumn("Place");
         table.addColumn("Hour");
         table.addColumn("Guests");
-        
+
         tblEvents.setModel(table);
         toProject();
     }
-    
+
     public void toProject() {
         MongoCursor<Document> query = Event.find().iterator();
 
@@ -61,7 +58,7 @@ public class FrmEvents extends javax.swing.JFrame {
         while (query.hasNext()) {
             ArrayList<Object> doc = new ArrayList<Object>(query.next().values());
             table.addRow(doc.toArray());
-           /* table.setNumRows(events.size());
+            /* table.setNumRows(events.size());
         for (int i = 0; i <events.size(); i++) {
             table.setValueAt(events.get(i).getID(), i, 0);
             table.setValueAt(events.get(i).getDate(), i, 1);
@@ -71,8 +68,8 @@ public class FrmEvents extends javax.swing.JFrame {
 
         }
         tblEvents.setModel(table);*/
-    }
-    
+        }
+
     }
 
     /**
@@ -289,7 +286,7 @@ public class FrmEvents extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelEActionPerformed
-       FrmPrincipalCatering frmCateringPlanner = new FrmPrincipalCatering();
+        FrmPrincipalCatering frmCateringPlanner = new FrmPrincipalCatering();
         frmCateringPlanner.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelEActionPerformed
@@ -315,16 +312,17 @@ public class FrmEvents extends javax.swing.JFrame {
         }*/
         try {
             Document data;
-            data = new Document() {};
+            data = new Document() {
+            };
 
             data.put("ID", txtIDEvents.getText());
             data.put("Date", txtDate.getText());
-            data.put("Place",txtPlace.getText());
+            data.put("Place", txtPlace.getText());
             data.put("Hour", txtHour.getText());
             data.put("Guests", txtGuests.getText());
 
             Event.insertOne(data);
-            JOptionPane.showMessageDialog(this,  "Event Added");
+            JOptionPane.showMessageDialog(this, "Event Added");
 
         } catch (Exception err) {
             JOptionPane.showMessageDialog(this, "Error: " + err.getMessage());
@@ -339,17 +337,17 @@ public class FrmEvents extends javax.swing.JFrame {
             toProject();
         }*/
         int renglon = tblEvents.getSelectedRow();
-        if(renglon == -1){
+        if (renglon == -1) {
             JOptionPane.showMessageDialog(this, "Error ");
             return;
         }
         String idRemove = tblEvents.getValueAt(renglon, 0).toString();
-        int respuesta = JOptionPane.showConfirmDialog(this, "Remove ID"+ idRemove);
-        if(respuesta == JOptionPane.OK_OPTION){
+        int respuesta = JOptionPane.showConfirmDialog(this, "Remove ID" + idRemove);
+        if (respuesta == JOptionPane.OK_OPTION) {
             boolean answerDelete = Delete(idRemove);
-            if(answerDelete==true){
+            if (answerDelete == true) {
                 JOptionPane.showMessageDialog(this, "Correct Delete");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "No Delete");
 
             }
@@ -359,53 +357,57 @@ public class FrmEvents extends javax.swing.JFrame {
     private void btnUpdateEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEActionPerformed
         // TODO add your handling code here:
         MongoCursor<Document> query = Event.find().iterator();
-        
+
         int total = table.getRowCount();
-        for(int i = 0; i<total; i++){
+        for (int i = 0; i < total; i++) {
             table.removeRow(0);
         }
-        while(query.hasNext()){
+        while (query.hasNext()) {
             ArrayList<Object> doc = new ArrayList<Object>(query.next().values());
             table.addRow(doc.toArray());
         }
     }//GEN-LAST:event_btnUpdateEActionPerformed
 
     private void txtIDEventsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDEventsKeyTyped
-        // TODO add your handling code here:
-             if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
 
-        } else{
+        } else {
 
-            // do nothing
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+            String space = "";
+            char blankSpace = space.charAt(0);
+            evt.setKeyChar(blankSpace);
         }
     }//GEN-LAST:event_txtIDEventsKeyTyped
 
     private void txtPlaceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPlaceKeyTyped
         // TODO add your handling code here:
-              if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
             JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            String space = "";
+            char blankSpace = space.charAt(0);
+            evt.setKeyChar(blankSpace);
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-' || evt.getKeyChar() == '!' || evt.getKeyChar() == '#' || evt.getKeyChar() == '$' || evt.getKeyChar() == '$' || evt.getKeyChar() == '%' || evt.getKeyChar() == '&' || evt.getKeyChar() == '_' || evt.getKeyChar() == ':' || evt.getKeyChar() == ';' || evt.getKeyChar() == '?' || evt.getKeyChar() == '¿' || evt.getKeyChar() == '(' || evt.getKeyChar() == ')' || evt.getKeyChar() == '=') {
             JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+            String space = "";
+            char blankSpace = space.charAt(0);
+            evt.setKeyChar(blankSpace);
 
-        } else{
+        } else {
 
             // do nothing
         }
     }//GEN-LAST:event_txtPlaceKeyTyped
 
     private void txtGuestsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGuestsKeyTyped
-        // TODO add your handling code here:
-                      if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
 
-        } else{
+        } else {
 
-            // do nothing
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+            String space = "";
+            char blankSpace = space.charAt(0);
+            evt.setKeyChar(blankSpace);
         }
     }//GEN-LAST:event_txtGuestsKeyTyped
 
@@ -443,10 +445,10 @@ public class FrmEvents extends javax.swing.JFrame {
             }
         });
     }
-    
-    public boolean Delete(String id){
+
+    public boolean Delete(String id) {
         DeleteResult answer = Event.deleteOne(new Document("_id", new ObjectId(id)));
-        if(answer.getDeletedCount()==1){
+        if (answer.getDeletedCount() == 1) {
             return true;
         }
         return false;

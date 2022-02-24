@@ -204,11 +204,16 @@ public class FrmLoginIn extends javax.swing.JFrame {
 
     private void txtUserNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserNameKeyTyped
         if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, incorrect password");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, incorrect password");
-
-        } else{
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, incorrect user name");
+            String space = "";
+            char blankSpace = space.charAt(0);
+            evt.setKeyChar(blankSpace);
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-' || evt.getKeyChar() == '!' || evt.getKeyChar() == '#' || evt.getKeyChar() == '$' || evt.getKeyChar() == '$' || evt.getKeyChar() == '%' || evt.getKeyChar() == '&' || evt.getKeyChar() == '_' || evt.getKeyChar() == ':' || evt.getKeyChar() == ';' || evt.getKeyChar() == '?' || evt.getKeyChar() == '¿' || evt.getKeyChar() == '(' || evt.getKeyChar() == ')' || evt.getKeyChar() == '=') {
+            JOptionPane.showMessageDialog(this, "This field must be only filled with letters, incorrect user name");
+            String space = "";
+            char blankSpace = space.charAt(0);
+            evt.setKeyChar(blankSpace);
+        } else {
 
             // do nothing
         }
@@ -219,15 +224,15 @@ public class FrmLoginIn extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordLActionPerformed
 
     private void txtPasswordLKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordLKeyTyped
-        // TODO add your handling code here:
-           if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, incorrect numbers");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, incorrect password");
 
-        } else{
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
 
-            // do nothing
+        } else {
+
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+            String space = "";
+            char blankSpace = space.charAt(0);
+            evt.setKeyChar(blankSpace);
         }
     }//GEN-LAST:event_txtPasswordLKeyTyped
 

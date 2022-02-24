@@ -1,6 +1,5 @@
 package ec.edu.espe.simulationcatering.view;
 
-
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.result.DeleteResult;
@@ -16,8 +15,9 @@ import utils.MongoConnection;
  *
  * @author Salma Villegas
  */
-public class FrmTransport1 extends javax.swing.JFrame {
-        MongoCollection<Document> Transport = new MongoConnection().obtenerDB().getCollection("Transport");
+public class FrmTransport extends javax.swing.JFrame {
+
+    MongoCollection<Document> Transport = new MongoConnection().obtenerDB().getCollection("Transport");
     DefaultTableModel table = new DefaultTableModel() {
 
         @Override
@@ -30,7 +30,7 @@ public class FrmTransport1 extends javax.swing.JFrame {
     /**
      * Creates new form FrmTransport
      */
-    public FrmTransport1() {
+    public FrmTransport() {
         initComponents();
         //transports=new ArrayList();
         //table=new DefaultTableModel();
@@ -332,13 +332,13 @@ public class FrmTransport1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDriverNameActionPerformed
 
     private void btnCancelTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelTActionPerformed
-       FrmPrincipalCatering frmCateringPlanner = new FrmPrincipalCatering();
+        FrmPrincipalCatering frmCateringPlanner = new FrmPrincipalCatering();
         frmCateringPlanner.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelTActionPerformed
 
     private void btnRemoveRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveRActionPerformed
-           int renglon = tblTransport.getSelectedRow();
+        int renglon = tblTransport.getSelectedRow();
         if (renglon == -1) {
             JOptionPane.showMessageDialog(this, "Error ");
             return;
@@ -357,7 +357,7 @@ public class FrmTransport1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoveRActionPerformed
 
     private void btnAddTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddTActionPerformed
-          try {
+        try {
             Document data;
             data = new Document() {
             };
@@ -385,7 +385,7 @@ public class FrmTransport1 extends javax.swing.JFrame {
 
     private void btnUpdateTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateTActionPerformed
         // TODO add your handling code here:
-         MongoCursor<Document> query = Transport.find().iterator();
+        MongoCursor<Document> query = Transport.find().iterator();
 
         int total = table.getRowCount();
         for (int i = 0; i < total; i++) {
@@ -398,26 +398,29 @@ public class FrmTransport1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateTActionPerformed
 
     private void txtIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyTyped
-        // TODO add your handling code here:
-                      if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
 
-        } else{
+        } else {
 
-            // do nothing
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+            String space = "";
+            char blankSpace = space.charAt(0);
+            evt.setKeyChar(blankSpace);
         }
     }//GEN-LAST:event_txtIDKeyTyped
 
     private void txtDestinationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDestinationKeyTyped
         // TODO add your handling code here:
-                      if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+        String space = "";
+        char blankSpace = space.charAt(0);
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
             JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            evt.setKeyChar(blankSpace);
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-' || evt.getKeyChar() == '!' || evt.getKeyChar() == '#' || evt.getKeyChar() == '$' || evt.getKeyChar() == '$' || evt.getKeyChar() == '%' || evt.getKeyChar() == '&' || evt.getKeyChar() == '_' || evt.getKeyChar() == ':' || evt.getKeyChar() == ';' || evt.getKeyChar() == '?' || evt.getKeyChar() == '¿' || evt.getKeyChar() == '(' || evt.getKeyChar() == ')' || evt.getKeyChar() == '=') {
             JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+            evt.setKeyChar(blankSpace);
 
-        } else{
+        } else {
 
             // do nothing
         }
@@ -425,25 +428,28 @@ public class FrmTransport1 extends javax.swing.JFrame {
 
     private void txtGallonsGasolineKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGallonsGasolineKeyTyped
         // TODO add your handling code here:
-                      if (evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
-            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
 
-        } else{
+        } else {
 
-            // do nothing
+            JOptionPane.showMessageDialog(this, "This field must be only filled with numbers, enter again");
+            String space = "";
+            char blankSpace = space.charAt(0);
+            evt.setKeyChar(blankSpace);
         }
     }//GEN-LAST:event_txtGallonsGasolineKeyTyped
 
     private void txtDriverNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDriverNameKeyTyped
-        // TODO add your handling code here:
-                      if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+        String space = "";
+        char blankSpace = space.charAt(0);
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
             JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
-        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-'|| evt.getKeyChar() == '!'|| evt.getKeyChar() == '#'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '$'|| evt.getKeyChar() == '%'|| evt.getKeyChar() == '&'|| evt.getKeyChar() == '_'|| evt.getKeyChar() == ':'|| evt.getKeyChar() == ';'|| evt.getKeyChar() == '?'|| evt.getKeyChar() == '¿'|| evt.getKeyChar() == '('|| evt.getKeyChar() == ')'|| evt.getKeyChar() == '=') {
+            evt.setKeyChar(blankSpace);
+        } else if (evt.getKeyChar() == '.' || evt.getKeyChar() == '/' || evt.getKeyChar() == ',' || evt.getKeyChar() == '-' || evt.getKeyChar() == '!' || evt.getKeyChar() == '#' || evt.getKeyChar() == '$' || evt.getKeyChar() == '$' || evt.getKeyChar() == '%' || evt.getKeyChar() == '&' || evt.getKeyChar() == '_' || evt.getKeyChar() == ':' || evt.getKeyChar() == ';' || evt.getKeyChar() == '?' || evt.getKeyChar() == '¿' || evt.getKeyChar() == '(' || evt.getKeyChar() == ')' || evt.getKeyChar() == '=') {
             JOptionPane.showMessageDialog(this, "This field must be only filled with letters, enter again");
+            evt.setKeyChar(blankSpace);
 
-        } else{
+        } else {
 
             // do nothing
         }
@@ -466,26 +472,28 @@ public class FrmTransport1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmTransport1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTransport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmTransport1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTransport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmTransport1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTransport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmTransport1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTransport.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmTransport1().setVisible(true);
+                new FrmTransport().setVisible(true);
             }
         });
     }
-    
-      public boolean Delete(String id) {
+
+    public boolean Delete(String id) {
         DeleteResult answer = Transport.deleteOne(new Document("_id", new ObjectId(id)));
         if (answer.getDeletedCount() == 1) {
             return true;
@@ -519,5 +527,4 @@ public class FrmTransport1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 
-    
 }
